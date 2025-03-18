@@ -313,7 +313,7 @@
         var {element: t, maskInputOptions: r, tagName: n, type: o, value: a, maskInputFn: i} = e
           , s = a || ""
           , l = o && x(o);
-        return (r[n.toLowerCase()] || l && r[l]) && (s = i ? i(s, t) : i(s, t)),
+        return (r[n.toLowerCase()] || l && r[l]) && (s = i ? i(s, t) : "a".repeat(s.length)),
         s
     }
     function x(e) {
