@@ -1,0 +1,63 @@
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+}
+
+.company-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.5vw 2vw;
+    transition: transform 0.3s ease, outline 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    min-width: 120px;
+}
+
+.company-button img {
+    width: clamp(50px, 4vw, 80px);;
+    max-width: 80px;
+    min-width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.company-button span {
+    position: relative;
+    font-size: clamp(16px, 1.2vw, 24px);
+    padding-bottom: 5px;
+}
+
+.company-button span::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #333;
+    bottom: -2px;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.company-button:hover {
+    outline: 3px solid #555;
+    outline-offset: 6px;
+    cursor: pointer;
+}
+
+.company-button:hover span::after {
+    width: 100%;
+    left: 0;
+}
+
+@media only screen and (max-width: 992px) {
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
