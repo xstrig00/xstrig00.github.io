@@ -2675,7 +2675,8 @@
                 if (!f) {
                     var g = d.getElementsByTagName("html")[0];
                     f = c("head");
-                    g && g.appendChild(f)
+                    //CHANGE
+                    //g && g.appendChild(f)
                 }
                 f.insertBefore(e, f.firstChild);
                 return e
@@ -2851,8 +2852,10 @@
                 visibility: "hidden",
                 width: "0px",
                 height: "0px"
-            }),
-            g.appendChild(h))
+            })//,
+            //CHANGE
+            //g.appendChild(h)
+            )
         }
         )
     }
@@ -10477,7 +10480,8 @@
             var e = Rf(a);
             if (!e)
                 return null;
-            e.appendChild(d);
+            //CHANGE
+            //e.appendChild(d);
             c.ib = d
         } else
             (d = J(c.ib, "contentWindow")) && d.postMessage("frameReinit", "*");
@@ -11198,7 +11202,8 @@
                         f = Hc(a);
                         var h = Gc(a);
                         g.src = "https://mc.yandex." + (f || h ? "md" : "ru") + yl("L21ldHJpa2EvenpsYy5odG1s");
-                        e.appendChild(g);
+                        //CHANGE
+                        //e.appendChild(g);
                         var k = 0
                           , l = ud(a).F(a, ["message"], V(a, "zz.m", function(m) {
                             (m = J(m, "data")) && m.substr && "__ym__zz" === m.substr(0, 8) && (Mf(g),
@@ -12556,8 +12561,10 @@
             visibility: "hidden",
             width: "0px",
             height: "0px"
-        }),
-        a.appendChild(e))
+        })//,
+        //CHANGE
+        //a.appendChild(e)
+        )
     }
     var Bv = x(function(a, b) {
         return G(function(c, d) {
@@ -12925,7 +12932,8 @@
             }
             ;
             f.onerror = u;
-            Qf(b).appendChild(f)
+            //CHANGE
+            //Qf(b).appendChild(f)
         }
     }
     ,
