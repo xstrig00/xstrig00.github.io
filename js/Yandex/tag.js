@@ -4248,7 +4248,8 @@
         return ke(d, 128)
     }
     function Nj(a) {
-        var b = ["ym-disable-keys", "-metrika-nokeys"];
+        //CHANGE
+        /*var b = ["ym-disable-keys", "-metrika-nokeys"];
         b = L(b) ? b : [b];
         a = a || document;
         if (a.querySelectorAll)
@@ -4260,7 +4261,8 @@
             return Ib(H(Va("getElementsByClassName", a), ub), b);
         a = a.getElementsByTagName("*");
         b = "(" + T("|", b) + ")";
-        return mb(F(b, Of), ub(a))
+        return mb(F(b, Of), ub(a))*/
+        return [];
     }
     function Oj(a, b) {
         var c = Rf(a)
