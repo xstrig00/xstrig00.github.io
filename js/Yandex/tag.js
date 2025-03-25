@@ -7233,7 +7233,7 @@
                 qb: !1
             };
         var e = mb(ep, [b.className, b.id, b.name])
-          , f = b && Of("ym-record-keys", b);
+          , f = true; //b && Of("ym-record-keys", b); CHANGE
         d = d && K(d, Ro) || Nb(Wa($o), e);
         var g;
         (g = d) || (g = b.placeholder,
@@ -8269,7 +8269,7 @@
         }
     }
       , oq = ["checkbox", "radio"]
-      , pq = /pwd|value|password/i;
+      , pq = /pwd|value|password/i; //LOOK INTO
     function qq(a, b, c, d, e, f) {
         f = void 0 === f ? Yf(b) : f;
         var g = {
@@ -8285,7 +8285,7 @@
             a = c.hb,
             c = c.Wa,
             g.pb = !a && (e || b)) : (g.pb = e,
-            c = !(b && Of("ym-record-keys", b))),
+            c = !(b && true)), //Of("ym-record-keys", b))), CHANGE
             c || e) && (d = "" + d,
             g.value = 0 < d.length ? pl("\u2022", d.length) : "") : "checked" === c && K((b.getAttribute("type") || "").toLowerCase(), oq) ? g.value = b.checked ? "checked" : null : pq.test(c) && gp(b) && (g.value = null);
         else if ("IMG" === f && "src" === c)
@@ -8911,6 +8911,7 @@
         return f
     }
     ;
+    //LOOK INTO
     function Bq(a) {
         var b = !0
           , c = Lf(a.l)("input");
@@ -9266,6 +9267,7 @@
     Rq.pageshow = "windowfocus",
     Rq.pagehide = "windowblur",
     Rq);
+    //LOOK INTO
     function Tq(a, b, c) {
         Z.call(this, a, b, c);
         this.visibility = null;
@@ -9511,6 +9513,7 @@
         }
     }
     ;
+    //LOOK INTO
     n.yc = function(a) {
         var b = this.l.document.activeElement;
         b = b && "OBJECT" === b.nodeName && fr.test(b.getAttribute("type") || "");
@@ -9581,6 +9584,7 @@
     function lr(a) {
         return !B(a.frameId) && !B(a.data)
     }
+    //LOOK INTO
     function mr(a, b, c) {
         b || md(hf());
         b.postMessage(yf(a, c), "*")
@@ -11356,6 +11360,7 @@
             if (c = Ys(a, c))
                 return vi(a, c.mh).then(E([a, b, c], Zs), V(a, "ice.s")),
                 !0
+    //LOOK INTO
     }), bt = ["text", "email", "tel"], ct = ["cc-", "name", "shipping"], dt = W("icei", function(a, b) {
         if (ui(a)) {
             var c = !1
