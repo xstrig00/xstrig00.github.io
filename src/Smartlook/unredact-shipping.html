@@ -4,41 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unredacted Shipping</title>
-    <link rel="icon" href="../../images/fullstory.png" type="image/png">
+    <link rel="icon" href="../../images/smartlook.png" type="image/png">
 
     <link rel="stylesheet" href="../../css/status.css">
     <link rel="stylesheet" href="../../css/shipping.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <script>
-        window['_fs_host'] = 'fullstory.com';
-        window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
-        window['_fs_org'] = 'o-22XYMF-na1';
-        window['_fs_namespace'] = 'FS';
-        !function(m,n,e,t,l,o,g,y){var s,f,a=function(h){
-        return!(h in m)||(m.console&&m.console.log&&m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'),!1)}(e)
-        ;function p(b){var h,d=[];function j(){h&&(d.forEach((function(b){var d;try{d=b[h[0]]&&b[h[0]](h[1])}catch(h){return void(b[3]&&b[3](h))}
-        d&&d.then?d.then(b[2],b[3]):b[2]&&b[2](d)})),d.length=0)}function r(b){return function(d){h||(h=[b,d],j())}}return b(r(0),r(1)),{
-        then:function(b,h){return p((function(r,i){d.push([b,h,r,i]),j()}))}}}a&&(g=m[e]=function(){var b=function(b,d,j,r){function i(i,c){
-        h(b,d,j,i,c,r)}r=r||2;var c,u=/Async$/;return u.test(b)?(b=b.replace(u,""),"function"==typeof Promise?new Promise(i):p(i)):h(b,d,j,c,c,r)}
-        ;function h(h,d,j,r,i,c){return b._api?b._api(h,d,j,r,i,c):(b.q&&b.q.push([h,d,j,r,i,c]),null)}return b.q=[],b}(),y=function(b){function h(h){
-        "function"==typeof h[4]&&h[4](new Error(b))}var d=g.q;if(d){for(var j=0;j<d.length;j++)h(d[j]);d.length=0,d.push=h}},function(){
-        (o=n.createElement(t)).async=!0,o.crossOrigin="anonymous",o.src="https://"+l,o.onerror=function(){y("Error loading "+l)}
-        ;var b=n.getElementsByTagName(t)[0];b&&b.parentNode?b.parentNode.insertBefore(o,b):n.head.appendChild(o)}(),function(){function b(){}
-        function h(b,h,d){g(b,h,d,1)}function d(b,d,j){h("setProperties",{type:b,properties:d},j)}function j(b,h){d("user",b,h)}function r(b,h,d){j({
-        uid:b},d),h&&j(h,d)}g.identify=r,g.setUserVars=j,g.identifyAccount=b,g.clearUserCookie=b,g.setVars=d,g.event=function(b,d,j){h("trackEvent",{
-        name:b,properties:d},j)},g.anonymize=function(){r(!1)},g.shutdown=function(){h("shutdown")},g.restart=function(){h("restart")},
-        g.log=function(b,d){h("log",{level:b,msg:d})},g.consent=function(b){h("setIdentity",{consent:!arguments.length||b})}}(),s="fetch",
-        f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){return g._w[s].apply(this,arguments)}),g._v="2.0.0")
-        }(window,document,window._fs_namespace,"script",window._fs_script);
+    <script type='text/javascript'>
+        // unset doNotTrack flag
+        Object.defineProperty(window.navigator, 'doNotTrack', {
+            value: null
+        });
+        
+        window.smartlook||(function(d) {
+        var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+        var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+        c.charset='utf-8';c.src='https://web-sdk.smartlook.com/recorder.js';h.appendChild(c);
+        })(document);
+        smartlook('init', '8fa8a055d55436f08a9f12e92e48fc0d2bfe8a90', { region: 'eu' });
     </script>
-
 </head>
 
 <body>
 
     <div class="session-status status-on">
-        Session recording: <span class="status-text">Hotjar</span>
+        Session recording: <span class="status-text">Smartlook</span>
     </div>
 
     <div class="status redaction">
@@ -57,19 +47,19 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="first-name" class="form-label">First name</label>
                                     <!-- ADJUST -->
-                                    <input fs-unmask type="text" class="form-control" id="first-name" placeholder="John" required>
+                                    <input data-sl="unmask" type="text" class="form-control" id="first-name" placeholder="John" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="last-name" class="form-label">Last name</label>
                                     <!-- ADJUST -->
-                                    <input fs-unmask type="text" class="form-control" id="last-name" placeholder="Doe" required>
+                                    <input data-sl="unmask" type="text" class="form-control" id="last-name" placeholder="Doe" required>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="company" class="form-label" autocomplete="organization">Company name (optional)</label>
                                 <!-- ADJUST -->
-                                <input fs-unmask type="text" class="form-control" id="company" placeholder="">
+                                <input data-sl="unmask" type="text" class="form-control" id="company" placeholder="">
                             </div>
 
                             <div class="form-row">
@@ -77,7 +67,7 @@
                                     <label for="country" class="form-label">Country / Region</label>
 
                                     <!-- Search Input for Country - ADJUST -->
-                                    <input fs-unmask type="text" id="search_input" class="form-control" onkeyup="filterCountries()" placeholder="Search country..." aria-label="search">
+                                    <input data-sl="unmask" type="text" id="search_input" class="form-control" onkeyup="filterCountries()" placeholder="Search country..." aria-label="search">
 
                                     <!-- List of Countries -->
                                     <ul id="country_list" class="list-group"  style="display: none; position: absolute; width: 80%; max-height: 200px; overflow-y: auto; z-index: 10; margin-top: 5px;"></ul>
@@ -85,7 +75,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="street-address" class="form-label">Street address</label>
                                     <!-- ADJUST -->
-                                    <input fs-unmask type="text" class="form-control" id="street-address" placeholder="House number and street name" required>
+                                    <input data-sl="unmask" type="text" class="form-control" id="street-address" placeholder="House number and street name" required>
                                 </div>
                             </div>
 
@@ -93,31 +83,31 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="town" class="form-label">Town / City</label>
                                     <!-- ADJUST -->
-                                    <input fs-unmask type="text" class="form-control" id="town" required>
+                                    <input data-sl="unmask" type="text" class="form-control" id="town" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="postcode" class="form-label">Postcode / ZIP</label>
                                     <!-- ADJUST -->
-                                    <input fs-unmask type="text" class="form-control" id="postcode" required>
+                                    <input data-sl="unmask" type="text" class="form-control" id="postcode" required>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="phone" class="form-label" autocomplete="tel">Phone</label>
                                 <!-- ADJUST -->
-                                <input fs-unmask type="tel" class="form-control" id="phone" required>
+                                <input data-sl="unmask" type="tel" class="form-control" id="phone" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="email" class="form-label" autocomplete="email">Email address</label>
                                 <!-- ADJUST -->
-                                <input fs-unmask type="email" class="form-control" id="email" required>
+                                <input data-sl="unmask" type="email" class="form-control" id="email" required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="notes" class="form-label">Order notes (optional)</label>
                                 <!-- ADJUST -->
-                                <textarea fs-unmask class="form-control" id="notes" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                <textarea data-sl="unmask" class="form-control" id="notes" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                             </div>
                         </form>
                     </div>
@@ -129,30 +119,30 @@
                             <div class="mb-3">
                                 <!-- ADJUST -->
                                 <div class="d-flex justify-content-between">
-                                    <span fs-unmask style="font-weight: bold;">Product</span>
-                                    <span fs-unmask style="font-weight: bold;">Price</span>
+                                    <span data-sl="unmask" style="font-weight: bold;">Product</span>
+                                    <span data-sl="unmask" style="font-weight: bold;">Price</span>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <span fs-unmask>T-Shirt × 5</span>
-                                    <span fs-unmask>$450.00</span>
+                                    <span data-sl="unmask">T-Shirt × 5</span>
+                                    <span data-sl="unmask">$450.00</span>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <!-- ADJUST -->
-                                <div fs-unmask class="d-flex justify-content-between">
-                                    <span fs-unmask style="font-weight: bold;">Subtotal</span>
-                                    <span fs-unmask>$450.00</span>
+                                <div data-sl="unmask" class="d-flex justify-content-between">
+                                    <span data-sl="unmask" style="font-weight: bold;">Subtotal</span>
+                                    <span data-sl="unmask">$450.00</span>
                                 </div>
-                                <div fs-unmask class="d-flex justify-content-between">
-                                    <span fs-unmask style="font-weight: bold;">Shipping</span>
+                                <div data-sl="unmask" class="d-flex justify-content-between">
+                                    <span data-sl="unmask" style="font-weight: bold;">Shipping</span>
                                     <div>
-                                        <input fs-unmask type="radio" id="free-shipping" name="shipping" checked>
-                                        <label fs-unmask for="free-shipping">Free shipping</label>
+                                        <input data-sl="unmask" type="radio" id="free-shipping" name="shipping" checked>
+                                        <label data-sl="unmask" for="free-shipping">Free shipping</label>
                                     </div>
                                 </div>
                             </div>
                             <!-- ADJUST -->
-                            <div fs-unmask class="d-flex justify-content-between">
+                            <div data-sl="unmask" class="d-flex justify-content-between">
                                 <strong>Total</strong>
                                 <strong>$450.00</strong>
                             </div>
@@ -163,34 +153,34 @@
                             <h5>Payment Method</h5>
                             <div class="form-check">
                                 <!-- ADJUST -->
-                                <input fs-unmask class="form-check-input" type="radio" name="payment" id="payment-cash" checked>
-                                <label fs-unmask class="form-check-label" for="payment-cash">Credit card</label>
+                                <input data-sl="unmask" class="form-check-input" type="radio" name="payment" id="payment-cash" checked>
+                                <label data-sl="unmask" class="form-check-label" for="payment-cash">Credit card</label>
                             </div>
                             <div id="credit-card-info" class="mt-3">
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
                                         <label for="cardholder-name" class="form-label" autocomplete="cc-name">Cardholder Name</label>
                                         <!-- ADJUST -->
-                                        <input fs-unmask type="text" class="form-control" id="cardholder-name" required>
+                                        <input data-sl="unmask" type="text" class="form-control" id="cardholder-name" required>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
                                         <label for="card-number" class="form-label" autocomplete="cc-number">Credit Card Number</label>
                                         <!-- ADJUST -->
-                                        <input fs-unmask type="text" class="form-control" id="card-number" required>
+                                        <input data-sl="unmask" type="text" class="form-control" id="card-number" required>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="expiration" class="form-label" autocomplete="cc-exp">Expiration</label>
                                         <!-- ADJUST -->
-                                        <input fs-unmask type="text" class="form-control" id="expiration" required>
+                                        <input data-sl="unmask" type="text" class="form-control" id="expiration" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="cvv" class="form-label" autocomplete="cc-csc">CVV</label>
                                         <!-- ADJUST -->
-                                        <input fs-unmask type="text" class="form-control" id="cvv" required>
+                                        <input data-sl="unmask" type="text" class="form-control" id="cvv" required>
                                     </div>
                                 </div>
                             </div>
