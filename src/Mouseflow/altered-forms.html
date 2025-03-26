@@ -40,7 +40,13 @@
           var mf = document.createElement("script");
           mf.type = "text/javascript"; mf.defer = true;
           mf.src = "//cdn.mouseflow.com/projects/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js";
-          //document.getElementsByTagName("head")[0].appendChild(mf);
+          //CHANGE: Once loaded, remove the script element from the DOM
+          mf.onload = function() {
+            if (mf.parentNode) {
+              mf.parentNode.removeChild(mf);
+            }
+          };
+          document.getElementsByTagName("head")[0].appendChild(mf);
         })();
       </script>
       <script src="../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js"></script>
