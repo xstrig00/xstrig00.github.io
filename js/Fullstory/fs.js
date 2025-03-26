@@ -2665,7 +2665,11 @@
     }
     var Gs, Qs = "https://fs-excluded.invalid";
     function Xs(t) {
-        var n, i, r, e, s, u, o, a, c, h, f, v, l, d, p, w;
+        //CHANGE
+        Gs = { blocklist: {}, hasPrefix: false };
+        return;
+
+        /*var n, i, r, e, s, u, o, a, c, h, f, v, l, d, p, w;
         try {
             for (var g = (Gs = {
                 blocklist: {},
@@ -2721,15 +2725,15 @@
                 n[At.Any] = {
                     "*": {
                         "static": {},
-                        regex: (i = {},
-                        i[Et.Erase] = /.*/,
-                        i)
+                        regex: (i = {},*/
+                        //i[Et.Erase] = /.*/,
+                        /*i)
                     }
                 },
                 n),
                 hasPrefix: !0
             }
-        }
+        }*/
     }
     function Ys(t, n, i) {
         var r, e, s = null === (e = null === (r = Gs.blocklist[t]) || void 0 === r ? void 0 : r[n]) || void 0 === e ? void 0 : e.regex;
