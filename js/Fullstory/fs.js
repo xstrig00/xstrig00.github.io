@@ -16045,11 +16045,13 @@
         return "Init Api - invalid ".concat(t, " config, ").concat(n)
     }
     function rl(t) {
-        var n;
+        //CHANGE
+        return false; // delete if needed
+        /*var n;
         if (!t || "object" != typeof t)
             return !1;
         var i = t;
-        return el(i.target, ["any", "exclude", "mask"]) && el(i.tag) && el(i.action, ["erase", "maskText", "scrubUrl", "scrubCss"]) && el(null !== (n = i.type) && void 0 !== n ? n : "static", ["static", "prefix"])
+        return el(i.target, ["any", "exclude", "mask"]) && el(i.tag) && el(i.action, ["erase", "maskText", "scrubUrl", "scrubCss"]) && el(null !== (n = i.type) && void 0 !== n ? n : "static", ["static", "prefix"])*/
     }
     function el(t, n) {
         return void 0 === n && (n = []),
