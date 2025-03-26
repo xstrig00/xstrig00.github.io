@@ -30,7 +30,7 @@
         }
         ,
         o.prototype.shouldLoad = function() {
-            return false //!(!r(i) && !n(i)) || document.referrer.indexOf("picker/4f249306-efd5-4127-b768-79a6750a7c5d-ca97caf7-335a-4e1f-b047-be42cb6098f9") > -1
+            return !(!r(i) && !n(i)) || document.referrer.indexOf("picker/4f249306-efd5-4127-b768-79a6750a7c5d-ca97caf7-335a-4e1f-b047-be42cb6098f9") > -1
         }
         ,
         o
@@ -38,14 +38,14 @@
         function o() {}
         return o.prototype.load = function() {
             //CHANGE
-            //var o = document.createElement("script");
-            //o.src = s,
+            var o = document.createElement("script");
+            o.src = s,
             //document.head.append(o),
             d(c, "1")
         }
         ,
         o.prototype.shouldLoad = function() {
-            return false //Boolean(r(c) || n(c))
+            return Boolean(r(c) || n(c))
         }
         ,
         o
@@ -83,8 +83,7 @@
     }, w = (null === (t = document.currentScript) || void 0 === t ? void 0 : t.src) || "", f = function() {
         window.smartlook._loadInfo = window.smartlook._loadInfo || [],
         window.smartlook._loadInfo.push("Loading scripts.");
-        //CHANGE
-        /*var o = document.createElement("script");
+        var o = document.createElement("script");
         o.src = w.replace("recorder.js", "es6/init.4e02050bca448f127b3f.js"),
         o.type = "module",
         o.addEventListener("load", (function() {
@@ -110,12 +109,9 @@
             window.smartlook._loadInfo.push("Script nomodule failed to load.")
         }
         ), !0),
-        "noModule"in document.createElement("script") ? (document.head.appendChild(o),
+        "noModule"in document.createElement("script") /*? (document.head.appendChild(o),
         document.head.appendChild(e)) : document.head.appendChild(e)*/
-
-        //CHANGE - these 2 lines below weren't here
-        window.smartlook._loadInfo.push("Script module loaded.")
-        window.smartlook._loadInfo.push("Script nomodule loaded.")
+        //CHANGE
     };
     if (void 0 === window.smartlook)
         p("Smartlook script was loaded without initializing `window.smartlook` object.", document.currentScript);
