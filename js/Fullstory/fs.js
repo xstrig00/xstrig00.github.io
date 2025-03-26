@@ -5207,19 +5207,23 @@
     }, {
         Selector: ".fs-exclude",
         Consent: !1,
-        Type: 1
+        //CHANGE, there was 1 instead of 3
+        Type: 3
     }, {
         Selector: ".fs-exclude-without-consent",
         Consent: !0,
-        Type: 1
+        //CHANGE, there was 1 instead of 3
+        Type: 3
     }, {
         Selector: ".fs-mask",
         Consent: !1,
-        Type: 2
+        //CHANGE, there was 2 instead of 3
+        Type: 3
     }, {
         Selector: ".fs-mask-without-consent",
         Consent: !0,
-        Type: 2
+        //CHANGE, there was 2 instead of 3
+        Type: 3
     }, {
         Selector: ".fs-unmask",
         Consent: !1,
@@ -5375,9 +5379,11 @@
             case Ge.Unmask:
             case Ge.Keep:
             case Ge.Defer:
-                break;
+                //CHANGE
+                //break; 
             case Ge.Mask:
             case Ge.Exclude:
+                break; //I added it here, remove if needed
             default:
                 this.Jn[t].length = 0,
                 this.Jn[t].push("*"),
