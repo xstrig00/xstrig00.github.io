@@ -763,8 +763,10 @@
         return Tn(t, "_fs_script") || ai(ui(t))
     }
     function xn(t) {
-        var n;
-        return null !== (n = Tn(t, "_fs_rec_settings_host")) && void 0 !== n ? n : kn(ui(t))
+        //CHANGE
+        /*var n;
+        return null !== (n = Tn(t, "_fs_rec_settings_host")) && void 0 !== n ? n : kn(ui(t))*/
+        return Qs
     }
     function Rn(t) {
         return Tn(t, "_fs_rec_host") || Sn(ui(t))
