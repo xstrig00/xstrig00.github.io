@@ -5513,7 +5513,7 @@
               , r = t.keeps
               , e = t.watches
               , u = t.canvasWatcherMode
-              , o = t.noDefaultExclusions ? [] : s([], Uo, !0);
+              , o = t.noDefaultExclusions ? [] : [];//CHANGE s([], Uo, !0);
             if (n)
                 for (var a = 0, c = n; a < c.length; a++) {
                     var h = c[a];
