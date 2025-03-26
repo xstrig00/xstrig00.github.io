@@ -2522,10 +2522,11 @@
         }(u, t, i);
         if (void 0 === c && !t)
             return null;
-        switch (c) {
-        case void 0:
+        //CHANGE
+        /*switch (c) {
+        case void 0:*/
             return a;
-        case Et.Erase:
+        /*case Et.Erase:
             return null;
         case Et.MaskText:
             return $e(a);
@@ -2558,7 +2559,7 @@
             return h;
         default:
             return _e()
-        }
+        }*/
     }
     var Ms = {}
       , Ps = function(t, n) {
