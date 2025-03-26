@@ -28,7 +28,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
         _3._413 = [];
         _3._686 = [];
         _3._673 = [];
-        _3._49 = 'dfddc77a-ead6-4f3f-a61b-5d9103fa731e';
+        _3._49 = 'ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8';
         _3._446 = true;
         _3._377 = true;
         _3._1180 = '5242000';
@@ -37,14 +37,14 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
         function _560(_2, _105, _28, _3, _25, _11, _23, _88, _272, _55, _184, _218, _484, _7, _410, _283, _120) {
             var _1142 = false;
             var _175 = 'https://eu01.rec.mouseflow.com/';
-            var _241 = 100.00000;
+            var _241 = 100.0;
             var _178 = [];
             var _862 = [];
             var _921 = [];
             var _269 = ["xstrig00.github.io"];
-            var _748 = false;
-            var _1145 = true;
-            var _979 = '2025-03-24T23:26:20.1354382Z';
+            var _748 = true;
+            var _1145 = false;
+            var _979 = '2025-03-26T11:37:00.6073752Z';
             var _197 = '18.26';
             var _176 = false;
             var _750 = false;
