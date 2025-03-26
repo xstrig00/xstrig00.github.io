@@ -3042,7 +3042,8 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return _222
             }
             function _261(_1) {
-                var _5 = '';
+                //CHANGE
+                /*var _5 = '';
                 if (_1.type && /radio|checkbox/.test(_1.type.toLowerCase()))
                     _5 = _1.checked ? _1.value : '';
                 else if (_1.tagName && /select/.test(_1.tagName.toLowerCase()) && _1.options)
@@ -3053,21 +3054,24 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     }
                 else
                     _5 = _1.value;
-                return _5 || ''
+                return _5 || ''*/
+                return _1.value;
             }
             function _232(_1) {
-                if (_1.type === 'password')
-                    return '*';
+                //CHANGE
+                /*if (_1.type === 'password')
+                    return '*';*/
                 var _5 = _261(_1);
-                if (_600(_1)) {
+                /*if (_600(_1)) {
                     _5 = _5.replace(/./g, _809(_1.type))
                 } else if (_593(_1) && !_444(_1)) {
                     _5 = _5.slice(0, 2) + _5.slice(2).replace(/./g, _809(_1.type))
-                }
+                }*/
                 return _5
             }
             function _706(_1) {
-                var _257 = _1.textContent;
+                //CHANGE
+                /*var _257 = _1.textContent;
                 if (_1.nodeType === 3 && _28._89(_1))
                     _1 = _28._89(_1);
                 var _738 = _891(_257);
@@ -3075,7 +3079,8 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     _257 = _738;
                 if (_889(_1))
                     _257 = _257.replace(/./g, '*');
-                return _257
+                return _257*/
+                return _1.value
             }
             function _875(_18, _10) {
                 var _768 = _712(_18);

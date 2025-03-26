@@ -654,7 +654,7 @@
         RecordPerformanceResourceTiming: !0,
         HttpRequestHeadersAllowlist: [],
         HttpResponseHeadersAllowlist: [],
-        UrlPrivacyConfig: [{
+        UrlPrivacyConfig: [{ //LOOK INTO
             Exclude: {
                 Hash: [{
                     Expression: "#.*"

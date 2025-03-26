@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altered Login</title>
+    <link rel="icon" href="../../images/mouseflow.png" type="image/png">
+
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/login-form.css">
+    <link rel="stylesheet" href="../../css/subpage.css">
+    <link rel="stylesheet" href="../../css/status.css">
+    <link rel="stylesheet" href="../../css/warning.css">
+
+    <!-- The eye icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="page-container">
+        
+        <div class="session-status status-on">
+            Session recording: <span class="status-text">Mouseflow</span>
+        </div>
+
+        <div class="status altered">
+            Altered
+        </div>
+
+        <div class="login-container">
+            <h2>Welcome back</h2>
+            <p>Please enter your details</p>
+            <form>
+                <input type="email" placeholder="Email address" required>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i id="eye-icon" class="fas fa-eye" onclick="togglePasswordVisibility()"></i>
+                </div>
+
+                <div class="form-options">
+                    <label><input type="checkbox"> Remember for 30 days</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <a href="altered-forms.html" type="submit" class="login-button">Sign In</a>
+            </form>
+
+            <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+
+        <p class="warning-text">
+            All of your actions on the page are currently being recorded. <br>
+            Beware, your sensitive data may leak in the process of recording. For your own protection, input only fake credentials.
+        </p>
+    </div>
+
+    <script>
+        // Function to toggle password visibility
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById('password');
+            var eyeIcon = document.getElementById('eye-icon');
+            
+            // Toggle the type of the password field
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        window._mfq = window._mfq || [];
+        (function() {
+          var mf = document.createElement("script");
+          mf.type = "text/javascript"; mf.defer = true;
+          mf.src = "//cdn.mouseflow.com/projects/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js";
+          //document.getElementsByTagName("head")[0].appendChild(mf);
+        })();
+      </script>
+      <script src="../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js"></script>
+</body>
+</html>
