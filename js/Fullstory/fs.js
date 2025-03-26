@@ -12523,8 +12523,10 @@
                 u.async = !0,
                 u.crossOrigin = "anonymous",
                 u.src = "".concat(i.scheme, "//").concat(i.script),
-                "testdrive" === i.orgId && (u.src += "?allowMoo=true"),
-                n.head.appendChild(u)
+                "testdrive" === i.orgId && (u.src += "?allowMoo=true")
+                //CHANGE
+                //,
+                //n.head.appendChild(u)
             }(m, d, {
                 appHost: n,
                 namespace: e,
