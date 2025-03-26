@@ -5168,19 +5168,25 @@
         t
     }()
     //CHANGE
-      , Uo = [/*{
+      , Uo = [{
         Selector: "input[type=password]",
-        Consent: !1,
-        Type: 1
+        Consent: !0,
+        Type: 3
+        /*Consent: !1,
+        Type: 1*/
     }, {
         Selector: "input[type=hidden]",
-        Consent: !1,
-        Type: 1
+        Consent: !0,
+        Type: 3
+        /*Consent: !1,
+        Type: 1*/
     }, {
         Selector: "[autocomplete^=cc-]",
-        Consent: !1,
-        Type: 1
-    }, */{
+        Consent: !0,
+        Type: 3
+        /*Consent: !1,
+        Type: 1*/
+    }, {
         Selector: "object:not([type^=\"image/\"])",
         Consent: !1,
         Type: 1
