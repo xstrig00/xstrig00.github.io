@@ -42,7 +42,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
             var _862 = [];
             var _921 = [];
             var _269 = ["xstrig00.github.io"];
-            var _748 = true;
+            var _748 = false;
             var _1145 = false;
             var _979 = '2025-03-26T11:37:00.6073752Z';
             var _197 = '18.26';
