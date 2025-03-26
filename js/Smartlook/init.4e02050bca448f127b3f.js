@@ -225,11 +225,14 @@
             const r = ["card", "credit", "expiry", "cvv", "cvc"]
               , n = ["cc-name", "cc-given-name", "cc-additional-name", "cc-family-name", "cc-number", "cc-exp", "cc-exp-month", "cc-exp-year", "cc-csc", "cc-type"]
               , i = (e, t=r) => {
-                var o;
+                //CHANGE
+                /*var o;
                 const i = (null !== (o = e.getAttribute("autocomplete")) && void 0 !== o ? o : "").toLowerCase();
-                return !(!i || !n.some((e => i.includes(e)))) || Array.from(e.attributes).filter((e => "value" !== e.name)).flatMap((e => [e.name, e.value])).some((e => t.some((t => e.toLowerCase().includes(t)))))
+                return !(!i || !n.some((e => i.includes(e)))) || Array.from(e.attributes).filter((e => "value" !== e.name)).flatMap((e => [e.name, e.value])).some((e => t.some((t => e.toLowerCase().includes(t)))))*/
+                return false;
             }
-              , s = new Set(["file", "password"])
+                //CHANGE
+              , s = new new Set()//Set(["file", "password"])
         }
         ,
         757: (e, t, o) => {
