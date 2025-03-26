@@ -1341,7 +1341,7 @@
             }), 12e4);
             a.onerror = g.bind(null, a.onerror),
             a.onload = g.bind(null, a.onload),
-            d && document.head.appendChild(a)
+            d //CHANGE && document.head.appendChild(a)
         }
     }
     ,

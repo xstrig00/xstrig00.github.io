@@ -155,8 +155,8 @@
                         window.smartlook._loadInfo = window.smartlook._loadInfo || [],
                         window.smartlook._loadInfo.push("Polyfills failed to load.")
                     }
-                    )),
-                    document.head.appendChild(e)
+                    ))//CHANGE ,
+                    //document.head.appendChild(e)
                 }()) : (window.smartlook._loadInfo.push("Polyfills are not needed."),
                 f())
             } finally {
