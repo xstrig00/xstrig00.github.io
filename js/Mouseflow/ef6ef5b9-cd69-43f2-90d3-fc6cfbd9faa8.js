@@ -3082,7 +3082,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 //CHANGE
                 //if (_889(_1))
                 //    _257 = _257.replace(/./g, '*');
-                return _257
+                return _1.textContent
             }
             function _875(_18, _10) {
                 var _768 = _712(_18);
