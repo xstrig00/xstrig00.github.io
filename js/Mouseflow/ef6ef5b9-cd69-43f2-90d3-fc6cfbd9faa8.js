@@ -1,4 +1,4 @@
-var mouseflowDisableKeyLogging = true;
+var mouseflowDisableKeyLogging = false;
 if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined') {
     (function() {
         var _436 = false;
