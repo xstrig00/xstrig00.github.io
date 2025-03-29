@@ -7349,7 +7349,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
             this.includeSubDomains = !_2.mouseflowExcludeSubDomains;
             this.registerSubmitTimeout = _2.mouseflowRegisterSubmitTimeout || 2000;
             this.useUnload = !!_2.mouseflowUseUnload;
-            this.replaceLastFormValues = _2.mouseflowReplaceLastFormValues || !this.keyLogging || this.gdprEnabled;
+            this.replaceLastFormValues = false //CHANGE _2.mouseflowReplaceLastFormValues || !this.keyLogging || this.gdprEnabled;
             this.useAllHoverSelectors = !!_2.mouseflowUseAllHoverSelectors;
             this.enableCssRecording = !!_2.mouseflowEnableCssRecording;
             this.secureCookie = !!_2.mouseflowSecureCookie;
