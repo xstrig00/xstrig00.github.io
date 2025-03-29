@@ -29,7 +29,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
         _3._686 = [];
         _3._673 = [];
         _3._49 = 'ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8';
-        _3._446 = true;
+        _3._446 = false;
         _3._377 = true;
         _3._1180 = '5242000';
         _3._409('appUrl', _47);
