@@ -1662,7 +1662,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     this.knownNodes = new MutationSummary.NodeMap();
                     this.mutationSummaries = [];
                     _452();
-                    var serializedRoot = this.serializeNode(target/*CHANGE , true*/);
+                    var serializedRoot = this.serializeNode(target, true);
                     var rootId = serializedRoot.id;
                     this.mirror.initialize(rootId, [serializedRoot]);
                     var queries = [{
@@ -1680,7 +1680,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 }
                 TreeMirrorClient.prototype.addShadowRoot = function(shadow) {
                     if (!this.isKnownNode(shadow)) {
-                        var data = this.serializeNode(shadow /*CHANGE , true*/);
+                        var data = this.serializeNode(shadow, true);
                         if (data) {
                             data.parentNode = this.serializeNode(shadow.host);
                             this.mirror.applyChanged({
@@ -1754,7 +1754,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         if (isInitial && node.childNodes.length) {
                             let _38;
                             for (_38 = _28._191(node); _38; _38 = _28._167(_38))
-                                this.serializeNode(_38 /*CHANGE , true*/)
+                                this.serializeNode(_38, true)
                         }
                         if (_568)
                             return null
@@ -1767,7 +1767,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         if (isInitial && node.childNodes.length) {
                             let _38;
                             for (_38 = _28._191(node); _38; _38 = _28._167(_38))
-                                this.serializeNode(_38 /*CHANGE , true*/)
+                                this.serializeNode(_38, true)
                         }
                         if (_581)
                             return null
@@ -1871,7 +1871,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                             if (node.shadowRoot) {
                                 if (!data.childNodes)
                                     data.childNodes = [];
-                                var shadowRootData = this.serializeNode(node.shadowRoot/*CHANGE , true*/);
+                                var shadowRootData = this.serializeNode(node.shadowRoot, true);
                                 if (shadowRootData)
                                     data.childNodes.push(shadowRootData)
                             }
@@ -2033,7 +2033,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                             _196 = false;
                         if (_196)
                             continue;
-                        var serializedChild = this.serializeNode(child/*CHANGE , true*/);
+                        var serializedChild = this.serializeNode(child, true);
                         if (serializedChild) {
                             data.childNodes.push(serializedChild)
                         }
@@ -3070,7 +3070,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 } else if (_593(_1) && !_444(_1)) {
                     _5 = _5.slice(0, 2) + _5.slice(2).replace(/./g, _809(_1.type))
                 }*/
-                return _1.value
+                return _1.textContent
             }
             function _706(_1) {
                 var _257 = _1.textContent;
