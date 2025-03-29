@@ -5170,24 +5170,18 @@
         t
     }()
     //CHANGE
-      , Uo = [{
+      , Uo = [/*{
         Selector: "input[type=password]",
-        Consent: !0,
-        Type: 3
-        /*Consent: !1,
-        Type: 1*/
+        Consent: !1,
+        Type: 1
     }, {
         Selector: "input[type=hidden]",
-        Consent: !0,
-        Type: 3
-        /*Consent: !1,
-        Type: 1*/
+        Consent: !1,
+        Type: 1
     }, {
         Selector: "[autocomplete^=cc-]",
-        Consent: !0,
-        Type: 3
-        /*Consent: !1,
-        Type: 1*/
+        Consent: !1,
+        Type: 1
     }, {
         Selector: "object:not([type^=\"image/\"])",
         Consent: !1,
@@ -5207,23 +5201,19 @@
     }, {
         Selector: ".fs-exclude",
         Consent: !1,
-        //CHANGE, there was 1 instead of 3
-        Type: 3
+        Type: 1
     }, {
         Selector: ".fs-exclude-without-consent",
         Consent: !0,
-        //CHANGE, there was 1 instead of 3
-        Type: 3
+        Type: 1
     }, {
         Selector: ".fs-mask",
         Consent: !1,
-        //CHANGE, there was 2 instead of 3
-        Type: 3
+        Type: 2
     }, {
         Selector: ".fs-mask-without-consent",
         Consent: !0,
-        //CHANGE, there was 2 instead of 3
-        Type: 3
+        Type: 2
     }, {
         Selector: ".fs-unmask",
         Consent: !1,
@@ -5240,7 +5230,7 @@
         Selector: ".fs-record-with-consent",
         Consent: !0,
         Type: 1
-    }]
+    }*/]
       , Fo = function(t, n) {
         return t | n
     }
@@ -5522,7 +5512,7 @@
               , r = t.keeps
               , e = t.watches
               , u = t.canvasWatcherMode
-              , o = t.noDefaultExclusions ? [] : [];//CHANGE s([], Uo, !0);
+              , o = t.noDefaultExclusions ? [] : s([], Uo, !0);
             if (n)
                 for (var a = 0, c = n; a < c.length; a++) {
                     var h = c[a];
@@ -12883,6 +12873,7 @@
             AjaxWatches: [],
             CookieDomain: Pf(),
             ElementBlocks: t ? [] : s(s([], [{
+                //CHANGE
                 Selector: "input",
                 Consent: !1,
                 Type: Pt.Unmask
@@ -14629,6 +14620,7 @@
             })
         }
         ,
+        //RETURN POINT
         s.prototype.Sh = function() {
             var t = this;
             this.hh = !0,
