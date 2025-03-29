@@ -3113,7 +3113,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return _842.indexOf(_1) !== -1 || _11._171(_1, 'no-mouseflow-dom') || _11._171(_1, 'mf-excluded')
             }
             function _506(_1) {
-                return _823.indexOf(_1) !== -1 || _11._171(_1, 'mf-masked')
+                return false //CHANGE _823.indexOf(_1) !== -1 || _11._171(_1, 'mf-masked')
             }
             function _847(_1) {
                 return _11._171(_1, 'no-mouseflow') || (!_3.keyLogging && !_444(_1)) || _347(_1) || _507(_1)
@@ -3348,7 +3348,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return _251 ? _251[_16] : null
             }
             function _275(_18, _16, _5, _857) {
-                var _251 = _18[_355];
+                /*CHANGE var _251 = _18[_355];
                 if (!_251)
                     _251 = _18[_355] = {};
                 _251[_16] = _5;
@@ -3356,7 +3356,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     for (var _38 = _28._191(_18); _38; _38 = _28._167(_38)) {
                         _275(_38, _16, _5, true)
                     }
-                }
+                }*/
             }
             function _591(_18) {
                 delete _18[_355];
@@ -6201,9 +6201,9 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 _339()
             }
             function _1002() {
-                _13._63 = 'masked';
+                /*CHANGE _13._63 = 'masked';
                 _87(_13);
-                _339()
+                _339()*/
             }
             function _339() {
                 _11._61(_27.getElementsByClassName('mf-tool-exclude')[0], 'active');
@@ -6236,10 +6236,10 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 }
             }
             function _976(_6) {
-                if (_13._63 === 'masked') {
+                /*CHANGE if (_13._63 === 'masked') {
                     _647(_6.target.getAttribute('data-target'));
                     _118()
-                }
+                }*/
             }
             function _960(_6) {
                 _667(_6.target.parentNode.getAttribute('data-target'));
