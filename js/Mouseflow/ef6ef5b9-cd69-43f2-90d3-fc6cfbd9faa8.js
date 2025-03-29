@@ -3125,7 +3125,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return (_847(_1) || _263(_261(_1)) || _883(_1)) && _811(_1) && !_882.test(_1.type)
             }
             function _889(_1) {
-                return (_1.isContentEditable || _1.tagName === 'TEXTAREA') && _847(_1)
+                return false //CHANGE (_1.isContentEditable || _1.tagName === 'TEXTAREA') && _847(_1)
             }
             function _883(_1) {
                 return (_3.gdprEnabled || _3._446) && (_909(_1) || _931(_1))
