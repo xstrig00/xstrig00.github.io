@@ -1835,11 +1835,13 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         }
                         // LOOK INTO
                         if (_468) {
-                            data.attributes.class = node.className + ' mf-excluded';
-                            break
+                            //CHANGE
+                            //data.attributes.class = node.className + ' mf-excluded';
+                            //break
                         }
                         if (_466) {
-                            data.attributes.class = node.className + ' mf-masked'
+                            //CHANGE
+                            //data.attributes.class = node.className + ' mf-masked'
                         }
                         if (node === _364)
                             data.attributes.class = (data.attributes.class || '') + ' mf-scroll-main';
@@ -3342,10 +3344,11 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
             var _273 = 'is-blacklisted';
             var _282 = 'is-masked';
             function _255(_18, _16) {
-                if (!_18)
+                //CHANGE
+                /*if (!_18)
                     return null;
                 var _251 = _18[_355];
-                return _251 ? _251[_16] : null
+                return _251 ? _251[_16] : null*/
             }
             function _275(_18, _16, _5, _857) {
                 /*CHANGE var _251 = _18[_355];
@@ -6186,9 +6189,10 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 }
             }
             function _999() {
-                _13._63 = 'exclude';
+                /*CHANGE _13._63 = 'exclude';
                 _87(_13);
-                _339()
+                _339()*/
+                return // this wasn't here
             }
             function _1000() {
                 _13._63 = 'whitelist';
@@ -6204,6 +6208,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 /*CHANGE _13._63 = 'masked';
                 _87(_13);
                 _339()*/
+                return //this wasn't here
             }
             function _339() {
                 _11._61(_27.getElementsByClassName('mf-tool-exclude')[0], 'active');
@@ -6240,6 +6245,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     _647(_6.target.getAttribute('data-target'));
                     _118()
                 }*/
+               return //this wasn't here
             }
             function _960(_6) {
                 _667(_6.target.parentNode.getAttribute('data-target'));
