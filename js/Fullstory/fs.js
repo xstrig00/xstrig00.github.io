@@ -12885,27 +12885,27 @@
             ElementBlocks: t ? [] : s(s([], [{
                 Selector: "input",
                 Consent: !1,
-                Type: Pt.Mask
+                Type: Pt.Unmask
             }, {
                 Selector: "textarea",
                 Consent: !1,
-                Type: Pt.Mask
+                Type: Pt.Unmask
             }, {
                 Selector: "select",
                 Consent: !1,
-                Type: Pt.Mask
+                Type: Pt.Unmask
             }, {
                 Selector: "[contenteditable]",
                 Consent: !1,
-                Type: Pt.Mask
+                Type: Pt.Unmask
             }, {
                 Selector: "input[type=radio]",
                 Consent: !1,
-                Type: Pt.Exclude
+                Type: Pt.Unmask
             }, {
                 Selector: "input[type=checkbox]",
                 Consent: !1,
-                Type: Pt.Exclude
+                Type: Pt.Unmask
             }], !0), Uo, !0),
             ElementDeferreds: [],
             ElementKeeps: [],
