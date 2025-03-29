@@ -3074,11 +3074,11 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
             }
             function _706(_1) {
                 var _257 = _1.textContent;
-                if (_1.nodeType === 3 && _28._89(_1))
-                    _1 = _28._89(_1);
-                var _738 = _891(_257);
-                if (_738 !== _257 && _3.replaceLastFormValues)
-                    _257 = _738;
+                //if (_1.nodeType === 3 && _28._89(_1))
+                //    _1 = _28._89(_1);
+                //var _738 = _891(_257);
+                //if (_738 !== _257 && _3.replaceLastFormValues)
+                //    _257 = _738;
                 //CHANGE
                 //if (_889(_1))
                 //    _257 = _257.replace(/./g, '*');
