@@ -3070,8 +3070,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return _5
             }
             function _706(_1) {
-                //CHANGE
-                /*var _257 = _1.textContent;
+                var _257 = _1.textContent;
                 if (_1.nodeType === 3 && _28._89(_1))
                     _1 = _28._89(_1);
                 var _738 = _891(_257);
@@ -3079,8 +3078,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     _257 = _738;
                 if (_889(_1))
                     _257 = _257.replace(/./g, '*');
-                return _257*/
-                return _1.value
+                return _257
             }
             function _875(_18, _10) {
                 var _768 = _712(_18);
