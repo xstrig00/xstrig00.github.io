@@ -232,7 +232,7 @@
                 return false;
             }
                 //CHANGE
-              , s = new new Set()//Set(["file", "password"])
+              , s = new Set()//Set(["file", "password"])
         }
         ,
         757: (e, t, o) => {
