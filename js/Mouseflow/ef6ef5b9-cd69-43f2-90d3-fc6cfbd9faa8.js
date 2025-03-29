@@ -3078,8 +3078,9 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 var _738 = _891(_257);
                 if (_738 !== _257 && _3.replaceLastFormValues)
                     _257 = _738;
-                if (_889(_1))
-                    _257 = _257.replace(/./g, '*');
+                //CHANGE
+                //if (_889(_1))
+                //    _257 = _257.replace(/./g, '*');
                 return _257
             }
             function _875(_18, _10) {
