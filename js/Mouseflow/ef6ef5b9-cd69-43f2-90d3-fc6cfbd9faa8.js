@@ -2980,7 +2980,8 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return _55._231('mf_replaceHashes') || []
             }
             function _891(_5) {
-                if (_0._148.length === 0)
+                //CHANGE
+                /*if (_0._148.length === 0)
                     return _5;
                 var _114 = _743(_5);
                 for (var _4 = 0; _4 < _0._148.length; _4++) {
@@ -2996,7 +2997,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                             _5 = _5.slice(0, _35) + _895 + _5.slice(_234)
                         }
                     } while (_212 !== -1)
-                }
+                }*/
                 return _5
             }
             function _743(_5) {
