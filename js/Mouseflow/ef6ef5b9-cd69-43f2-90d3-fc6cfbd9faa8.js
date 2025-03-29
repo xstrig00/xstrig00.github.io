@@ -3070,7 +3070,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 } else if (_593(_1) && !_444(_1)) {
                     _5 = _5.slice(0, 2) + _5.slice(2).replace(/./g, _809(_1.type))
                 }*/
-                return _1.textContent
+                return _1.value
             }
             function _706(_1) {
                 var _257 = _1.textContent;
@@ -3082,7 +3082,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 //CHANGE
                 //if (_889(_1))
                 //    _257 = _257.replace(/./g, '*');
-                return _1.textContent
+                return _257
             }
             function _875(_18, _10) {
                 var _768 = _712(_18);
