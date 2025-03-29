@@ -1,7 +1,7 @@
 var mouseflowDisableKeyLogging = true;
 if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined') {
     (function() {
-        var _436 = true;
+        var _436 = false;
         var _462 = false;
         var _470 = [];
         var _471 = [];
