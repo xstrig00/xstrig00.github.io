@@ -1772,6 +1772,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         if (_581)
                             return null
                     }
+                    //LOOK INTO - toto bude funkcia ktora bude rozradzovat co s nodeom
                     switch (data.nodeType) {
                     case 9:
                         this.serializeAdoptedStyleSheets(node, data);
@@ -1832,6 +1833,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         } else {
                             _943(node, data)
                         }
+                        // LOOK INTO
                         if (_468) {
                             data.attributes.class = node.className + ' mf-excluded';
                             break
@@ -3042,8 +3044,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return _222
             }
             function _261(_1) {
-                //CHANGE
-                /*var _5 = '';
+                var _5 = '';
                 if (_1.type && /radio|checkbox/.test(_1.type.toLowerCase()))
                     _5 = _1.checked ? _1.value : '';
                 else if (_1.tagName && /select/.test(_1.tagName.toLowerCase()) && _1.options)
@@ -3054,8 +3055,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     }
                 else
                     _5 = _1.value;
-                return _5 || ''*/
-                return _1.value;
+                return _5 || ''
             }
             function _232(_1) {
                 //CHANGE
@@ -3339,6 +3339,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     return _53._36 + '.' + _53._215 + '.' + _53._76
                 }).join('$')
             }
+            //LOOK INTO
             var _355 = '__mouseflow_properties__';
             var _273 = 'is-blacklisted';
             var _282 = 'is-masked';
@@ -3997,6 +3998,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     _1071(_1070(_635(), _0._264))
                 }, 200)
             }
+            //LOOK INTO
             function _635() {
                 var _661 = _12.querySelectorAll('input,textarea,select');
                 var _659 = {};
