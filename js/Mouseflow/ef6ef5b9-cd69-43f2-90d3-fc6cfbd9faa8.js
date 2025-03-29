@@ -1923,14 +1923,14 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                                 else if (_845(node.previousSibling))
                                     _196 = false;
                                 if (!_196) {
-                                    var data = _44.serializeNode(node, true); //CHANGE, to true tam nebolo
+                                    var data = _44.serializeNode(node);
                                     if (data) {
                                         var _389 = node.previousSibling;
                                         while (_389 && !data.previousSibling) {
-                                            data.previousSibling = _44.serializeNode(_389, true); //CHANGE, to true tam nebolo
+                                            data.previousSibling = _44.serializeNode(_389);
                                             _389 = _389.previousSibling
                                         }
-                                        data.parentNode = _44.serializeNode(_28._89(node), true); //CHANGE, to true tam nebolo
+                                        data.parentNode = _44.serializeNode(_28._89(node));
                                         if (data.parentNode)
                                             moved.push(data)
                                     }
@@ -1958,7 +1958,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                                 _275(element, _282, true, true);
                             var record = map.get(element);
                             if (!record) {
-                                record = _44.serializeNode(element, true); //CHANGE, to true tam nebolo
+                                record = _44.serializeNode(element);
                                 if (record) {
                                     record.attributes = {};
                                     map.set(element, record)
@@ -1982,7 +1982,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 TreeMirrorClient.prototype.serializeTextChanges = function(textChanges) {
                     var _44 = this;
                     return textChanges.map(function(node) {
-                        var data = _44.serializeNode(node, true); //CHANGE, to true tam nebolo
+                        var data = _44.serializeNode(node);
                         if (data) {
                             if (node.tagName === 'STYLE' && /^\s*$/.test(node.textContent))
                                 data.textContent = _394(node.sheet);
@@ -2002,7 +2002,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     });
                     var _44 = this;
                     var removed = summary.removed.map(function(node) {
-                        return _44.serializeNode(node, true) //CHANGE, to true tam nebolo
+                        return _44.serializeNode(node) 
                     });
                     var moved = this.serializeAddedAndMoved(summary.added, summary.reparented, summary.reordered);
                     var attributes = this.serializeAttributeChanges(summary.attributeChanged);
