@@ -1744,8 +1744,8 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         id: this.rememberNode(node)
                     };
                     var parent = _28._89(node);
-                    if (_11._187(node, 'data-mf-replace') || _11._187(node, 'data-mf-replace-inner'))
-                        return null;
+                    /*CHANGE if (_11._187(node, 'data-mf-replace') || _11._187(node, 'data-mf-replace-inner'))
+                        return null;*/
                     var _468 = _441(node)
                       , _568 = !!_255(parent, _273);
                     if (_468 || _568) {
@@ -1808,7 +1808,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                             break
                         }
                         data.tagName = node.tagName;
-                        if (node.attributes['data-mf-replace']) {
+                        /*CHANGE if (node.attributes['data-mf-replace']) {
                             let _299 = node.attributes['data-mf-replace'].value;
                             data = _812.call(this, _299, function(_18) {
                                 var _10 = this.serializeNode(_18, true);
@@ -1817,7 +1817,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                                 return _10
                             })[0];
                             break
-                        }
+                        }*/
                         if (node.tagName === 'SCRIPT') {
                             if (/\/?aura_prod\.js(\?.+)?$/.test(node.src)) {
                                 _7('Salesforce Aura script added');
@@ -1859,13 +1859,13 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                             data.attributes.selected = node.selected;
                         if (node.tagName === 'INPUT' && node.type === 'hidden' && data.attributes.value)
                             data.attributes.value = '';
-                        if (node.attributes['data-mf-replace-inner']) {
+                        /*CHANGE if (node.attributes['data-mf-replace-inner']) {
                             let _299 = node.attributes['data-mf-replace-inner'].value;
                             data.childNodes = _812.call(this, _299, function(_18) {
                                 return this.serializeNode(_18, true)
                             });
                             break
-                        }
+                        }*/
                         if (isInitial) {
                             this.serializeChildNodes(node, data);
                             if (node.shadowRoot) {
@@ -1949,9 +1949,9 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     var map = new MutationSummary.NodeMap();
                     Object.keys(attributeChanged).forEach(function(attrName) {
                         attributeChanged[attrName].forEach(function(element) {
-                            if (element.hasAttribute && element.hasAttribute('data-mf-replace') || _11._187(element, 'data-mf-replace') || _11._187(element, 'data-mf-replace-inner')) {
+                            /*CHANGE if (element.hasAttribute && element.hasAttribute('data-mf-replace') || _11._187(element, 'data-mf-replace') || _11._187(element, 'data-mf-replace-inner')) {
                                 return
-                            }
+                            }*/
                             if (_441(element))
                                 _275(element, _273, true, true);
                             if (_507(element))
