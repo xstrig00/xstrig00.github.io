@@ -3160,14 +3160,15 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return _600(_41.target) || _593(_41.target) ? '191' : (_41.which && _41.which.toString()) || ''
             }
             function _1102(_1) {
-                var _357 = _59(_1);
+                /*CHANGE var _357 = _59(_1);
                 var _363 = _0._569[_357];
                 var _344 = _232(_1);
                 var _32 = _344;
                 if (_363 && _363.length > 3 && _344.indexOf(_363) === 0)
                     _32 = '+||' + _344.substring(_363.length);
                 _0._569[_357] = _344;
-                return _32
+                return _32*/
+                return _232(_1); //this wasn't here
             }
             function _928(_62, _503, _502) {
                 try {
