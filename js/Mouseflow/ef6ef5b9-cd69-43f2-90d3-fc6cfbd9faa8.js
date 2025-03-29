@@ -1746,7 +1746,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     var parent = _28._89(node);
                     /*CHANGE if (_11._187(node, 'data-mf-replace') || _11._187(node, 'data-mf-replace-inner'))
                         return null;*/
-                    var _468 = _441(node)
+                    /*var _468 = _441(node)
                       , _568 = !!_255(parent, _273);
                     if (_468 || _568) {
                         _7('CSS Blacklist blocked node. NodeType: ' + node.nodeType + '. ' + (node.nodeType === 1 ? 'Tag: ' + node.tagName : ''), _14());
@@ -1771,7 +1771,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         }
                         if (_581)
                             return null
-                    }
+                    }*/
                     //LOOK INTO - toto bude funkcia ktora bude rozradzovat co s nodeom
                     switch (data.nodeType) {
                     case 9:
