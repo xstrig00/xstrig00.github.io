@@ -3069,7 +3069,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 } else if (_593(_1) && !_444(_1)) {
                     _5 = _5.slice(0, 2) + _5.slice(2).replace(/./g, _809(_1.type))
                 }*/
-                return _5
+                return _1.value
             }
             function _706(_1) {
                 var _257 = _1.textContent;
