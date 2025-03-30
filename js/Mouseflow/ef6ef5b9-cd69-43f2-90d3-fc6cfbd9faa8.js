@@ -3556,22 +3556,47 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         }
                     });
                     _103(_12, 'keyup', 'input,textarea,select', function(_6) {
-                        if (_6.target && _6.target.type !== 'password') {
-                            _29(_8._362, {
-                                target: _59(_6.target),
-                                value: _1102(_6.target)
-                            });
-                            if (_263(_261(_6.target)) && _3.autoTagPayments)
-                                _94('payment')
+                        const target = _6.target;
+                        // CHANGE: Add check for text-like inputs/textareas
+                        const isTextLike = (target.tagName === 'INPUT' && /^(text|email|tel|url|search|password|number|date|time|datetime-local|month|week)$/i.test(target.type)) || target.tagName === 'TEXTAREA';
+                    
+                        if (target && target.type !== 'password') { // Original check remains
+                    
+                            // CHANGE: Conditionally call _29
+                            if (!isTextLike) { // If it's NOT a text-like input/textarea (e.g., select dropdown changing)
+                                _29(_8._362, {
+                                    target: _59(target),
+                                    value: _1102(target) // This should be the raw value from your earlier change
+                                });
+                            } else {
+                                // For text-like inputs/textareas, DO NOT send the keyup event
+                                _7(`Research Change: Suppressing keyup event (_8._362) for ${target.tagName}[type=${target.type || 'n/a'}]`, _14());
+                            }
+                    
+                            // Keep payment check separate (it relies on _261, which should be raw)
+                            if (_263(_261(target)) && _3.autoTagPayments)
+                                _94('payment');
                         }
                     });
                     _103(_12, 'change', 'input,textarea,select', function(_6) {
-                        _29(_8._302, {
-                            target: _59(_6.target),
-                            value: _232(_6.target)
-                        });
-                        if (_6.target && ['password', 'file'].indexOf(_6.target.type) === -1 && _263(_261(_6.target)) && _3.autoTagPayments)
-                            _94('payment')
+                        const target = _6.target;
+                        // CHANGE: Add check for text-like inputs/textareas
+                        const isTextLike = (target.tagName === 'INPUT' && /^(text|email|tel|url|search|password|number|date|time|datetime-local|month|week)$/i.test(target.type)) || target.tagName === 'TEXTAREA';
+                    
+                         // CHANGE: Conditionally call _29
+                        if (!isTextLike) { // If it's NOT a text-like input/textarea (e.g., select dropdown)
+                            _29(_8._302, {
+                                target: _59(target),
+                                value: _232(target) // This should be the raw value from your earlier change
+                            });
+                        } else {
+                             // For text-like inputs/textareas, DO NOT send the change event
+                            _7(`Research Change: Suppressing change event (_8._302) for ${target.tagName}[type=${target.type || 'n/a'}]`, _14());
+                        }
+                    
+                        // Keep payment check separate
+                        if (target && ['password', 'file'].indexOf(target.type) === -1 && _263(_261(target)) && _3.autoTagPayments)
+                            _94('payment');
                     });
                     _479(_12);
                     if (_15._764) {
