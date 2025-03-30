@@ -36,7 +36,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
         var _283 = new _1047(window,_11,_3,_7);
         function _560(_2, _105, _28, _3, _25, _11, _23, _88, _272, _55, _184, _218, _484, _7, _410, _283, _120) {
             var _1142 = false;
-            var _175 = 'https://eu01.rec.mouseflow.com/';
+            var _175 = 'https://us01.rec.mouseflow.com/';//CHANGE 'https://eu01.rec.mouseflow.com/';
             var _241 = 100.0;
             var _178 = [];
             var _862 = [];
