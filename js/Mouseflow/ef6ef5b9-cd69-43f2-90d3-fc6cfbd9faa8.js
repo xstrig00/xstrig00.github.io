@@ -2215,7 +2215,8 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     _19: _175 + 'config?websiteId=' + _3._49,
                     _135: function(_84) {
                         var _881 = _11._285(_84._340);
-                        _3.keyLogging = _881.enableKeystrokes;
+                        //CHANGE 
+                        // _3.keyLogging = _881.enableKeystrokes;
                         _7('Fetched recording script configuration.');
                         _66()
                     },
@@ -3071,7 +3072,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 } else if (_593(_1) && !_444(_1)) {
                     _5 = _5.slice(0, 2) + _5.slice(2).replace(/./g, _809(_1.type))
                 }*/
-                return _5;
+                return _261(_1);
             }
             function _706(_1) {
                 var _257 = _1.textContent;
@@ -3121,7 +3122,8 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return false //CHANGE _823.indexOf(_1) !== -1 || _11._171(_1, 'mf-masked')
             }
             function _847(_1) {
-                let result =  _11._171(_1, 'no-mouseflow') || (!_3.keyLogging && !_444(_1)) || _347(_1) || _507(_1)
+                let result = _11._171(_1, 'no-mouseflow') || _347(_1) || _507(_1);
+                //let result =  _11._171(_1, 'no-mouseflow') || (!_3.keyLogging && !_444(_1)) || _347(_1) || _507(_1)
                 //CHANGE --- TEMP DEBUG ---
                 if (_1 && (_1.tagName === 'INPUT' || _1.tagName === 'TEXTAREA' || _1.tagName === 'SELECT') && result) {
                     console.log('%cMF Debug: _847 is TRUE for:', 'color: orange; font-weight: bold;', _1, 'Reason flags:', {
@@ -7359,7 +7361,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
             this.sessionId = _2.mouseflowSessionId;
             this.honorDoNotTrack = _2.mouseflowHonorDoNotTrack || _462;
             this.gdprEnabled = _2.mouseflowForceGdpr || _436;
-            this.keyLogging = !_2.mouseflowDisableKeyLogging && !this.gdprEnabled;
+            this.keyLogging = true // CHANGE, toto je original -> !_2.mouseflowDisableKeyLogging && !this.gdprEnabled;
             this.domReuse = !_2.mouseflowDisableDomReuse;
             this.domDeduplicator = !_2.mouseflowDisableDomDeduplicator;
             this.includeSubDomains = !_2.mouseflowExcludeSubDomains;
