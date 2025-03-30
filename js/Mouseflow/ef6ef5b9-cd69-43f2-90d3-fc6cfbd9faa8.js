@@ -4396,9 +4396,44 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 if (_20 !== _8._379 && _20 !== _8._331)
                     _7('Event, type: ' + _20 + ', time: ' + _14() + ', details: ' + _11._121(_24), _14());
                 if (_1127(_20)) {
-                    if (_5 instanceof Array)
+                    if (_5 instanceof Array){
                         _5 = _5.join(', ');
-                    _144(1, _51.length, _10)
+                    }
+                    // CHANGE - Intercept specific events
+                        if (_20 === _8._362 || _20 === _8._302) { // Is it keyup or change?
+                            // Add a placeholder index (e.g., index of a static string like "[value_intercepted]")
+                            let placeholder = "[value_intercepted]";
+                            let placeholderIndex = _51.indexOf(placeholder);
+                            if (placeholderIndex === -1) {
+                                 placeholderIndex = _51.length;
+                             }
+                             _144(1, placeholderIndex, _10);
+
+                        } else {
+                            // For other event types (like friction _8._73), use original logic:
+                            _144(1, _51.length, _10); // Add the index for the value string
+                        }
+                    }
+
+                    if (_10._771) { // Check for overflow
+                        _7('Event, type: ' + _20 + ', skipping due to overflow in temp data, details: ' + _11._121(_24), _14());
+                        return null
+                    }
+
+                    // CHANGE FOR RESEARCH: Prevent original value from being added to the return object
+                    // for keyup/change, so it doesn't get pushed to _0._51 later in _29
+                    let finalValueToAdd = _5;
+                    if (_20 === _8._362 || _20 === _8._302) {
+                        finalValueToAdd = undefined; // Nullify the value for these events
+                    }
+
+                    return {
+                        _10: _10,
+                        _141: _141,
+                        _5: finalValueToAdd, // Use the potentially nullified value
+                        _170: _3._377 ? _170 : undefined
+                    }
+                    //CHANGE _144(1, _51.length, _10)
                 }
                 if (_10._771) {
                     _7('Event, type: ' + _20 + ', skipping due to overflow in temp data, details: ' + _11._121(_24), _14());
@@ -4410,7 +4445,6 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     _5: _5,
                     _170: _3._377 ? _170 : undefined
                 }
-            }
             function _708() {
                 return +new Date() - _0._306
             }
