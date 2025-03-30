@@ -5,7 +5,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
         var _462 = false;
         var _470 = [];
         var _471 = [];
-        var _47 = 'https://eu.mouseflow.com';
+        var _47 = 'https://us.mouseflow.com';//CHANGE 'https://eu.mouseflow.com';
         const _407 = window.location.search.slice(1).split('&').map(a => a.split('=', 2)).filter(a => a[0]).reduce( (acc, cur) => (acc[cur[0]] = cur[1] ?? null,
         acc), {});
         function _7(_154, _14) {
@@ -3146,7 +3146,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return false //CHANGE (_1.isContentEditable || _1.tagName === 'TEXTAREA') && _847(_1)
             }
             function _883(_1) {
-                return (_3.gdprEnabled || _3._446) && (_909(_1) || _931(_1))
+                return false // CHANGE (_3.gdprEnabled || _3._446) && (_909(_1) || _931(_1))
             }
             function _263(_5) {
                 var _447 = _5.replace(/[-\s]+/g, '');
