@@ -1802,6 +1802,46 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         }
                         break;
                     case 1:
+                        //CHANGE - start of altered input parse
+                        const originalTagName = node.tagName; // Store original tag name
+                        const isTextInput = originalTagName === 'INPUT' && /^(text|email|tel|url|search|password|number|date|time|datetime-local|month|week)$/i.test(node.type);
+                        const isTextArea = originalTagName === 'TEXTAREA';
+                        // Conditional logic for text inputs and textareas
+                        if (isTextInput || isTextArea) {
+                            _7(`Research Change: Serializing ${originalTagName} as DIV for node id ${data.id}`, _14());
+                            data.tagName = 'DIV'; // Change the tag name for serialization
+                            data.attributes = {}; // Initialize attributes for the DIV
+
+                            // Copy essential attributes (id, class, name)
+                            if (node.id) data.attributes.id = node.id;
+                            if (node.className) data.attributes.class = node.className; // Keep original classes
+                            if (node.name) data.attributes.name = node.name;
+
+                            // Add a marker attribute for research/debugging
+                            data.attributes['data-mf-research-type'] = originalTagName;
+                            if (isTextInput) {
+                                data.attributes['data-mf-research-input-type'] = node.type;
+                            }
+
+                            // Get the *actual* value using modified non-masking getter
+                            const actualValue = _232(node); // Currently returns raw value
+
+                            // Store the value as a text node child of the DIV
+                            if (actualValue) { // Only add if there's a value
+                                data.childNodes = [{
+                                    nodeType: 3, // Text node type
+                                    textContent: actualValue
+                                }];
+                            } else {
+                                data.childNodes = [];
+                            }
+
+
+                            // Skip the rest of the default case 1 logic for this node
+                            break; // IMPORTANT: Exit case 1 early for these modified nodes
+                        }
+                        //CHANGE - end of altered input parse
+
                         if (node.tagName === 'IFRAME' && parent && parent.tagName === 'HEAD') {
                             data.nodeType = 8;
                             data.textContent = '';
@@ -1851,8 +1891,9 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         if (node.tagName === 'IFRAME' && node.offsetWidth <= 1 && node.offsetHeight <= 1)
                             data.attributes.src = '';
                         if (isInitial && node.tagName === 'INPUT') {
-                            if (!data.attributes.value && node.value)
-                                data.attributes.value = _232(node);
+                            //CHANGE
+                            /*if (!data.attributes.value && node.value)
+                                data.attributes.value = _232(node);*/
                             if (!data.attributes.checked && node.checked)
                                 data.attributes.checked = node.checked
                         }
@@ -1867,7 +1908,10 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                             });
                             break
                         }*/
-                        if (isInitial) {
+
+                        //CHANGE
+                        //if (isInitial) {
+                        if (isInitial && !data.childNodes) {
                             this.serializeChildNodes(node, data);
                             if (node.shadowRoot) {
                                 if (!data.childNodes)
