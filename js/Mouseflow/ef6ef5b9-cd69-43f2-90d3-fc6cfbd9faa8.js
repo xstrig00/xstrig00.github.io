@@ -1746,9 +1746,9 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     var parent = _28._89(node);
                     /*CHANGE if (_11._187(node, 'data-mf-replace') || _11._187(node, 'data-mf-replace-inner'))
                         return null;*/
-                    /*var _468 = _441(node)
+                    var _468 = _441(node)
                       , _568 = !!_255(parent, _273);
-                    if (_468 || _568) {
+                    /*if (_468 || _568) {
                         _7('CSS Blacklist blocked node. NodeType: ' + node.nodeType + '. ' + (node.nodeType === 1 ? 'Tag: ' + node.tagName : ''), _14());
                         _275(node, _273, true);
                         if (isInitial && node.childNodes.length) {
