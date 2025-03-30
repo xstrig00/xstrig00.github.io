@@ -1828,11 +1828,12 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         }
                         data.attributes = {};
                         var _874 = _468 || _466;
-                        if (_874) {
+                        //CHANGE - bol tu ten if-else
+                        /*if (_874) {
                             _875(node, data)
-                        } else {
+                        } else {*/
                             _943(node, data)
-                        }
+                        //}
                         // LOOK INTO
                         if (_468) {
                             //CHANGE
@@ -3070,7 +3071,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 } else if (_593(_1) && !_444(_1)) {
                     _5 = _5.slice(0, 2) + _5.slice(2).replace(/./g, _809(_1.type))
                 }*/
-                return _1.value
+                return _5;
             }
             function _706(_1) {
                 var _257 = _1.textContent;
@@ -3120,9 +3121,23 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 return false //CHANGE _823.indexOf(_1) !== -1 || _11._171(_1, 'mf-masked')
             }
             function _847(_1) {
-                return _11._171(_1, 'no-mouseflow') || (!_3.keyLogging && !_444(_1)) || _347(_1) || _507(_1)
+                let result =  _11._171(_1, 'no-mouseflow') || (!_3.keyLogging && !_444(_1)) || _347(_1) || _507(_1)
+                //CHANGE --- TEMP DEBUG ---
+                if (_1 && (_1.tagName === 'INPUT' || _1.tagName === 'TEXTAREA' || _1.tagName === 'SELECT') && result) {
+                    console.log('%cMF Debug: _847 is TRUE for:', 'color: orange; font-weight: bold;', _1, 'Reason flags:', {
+                        noMouseflowClass: _11._171(_1, 'no-mouseflow'),
+                        keyLoggingFallback: (!_3.keyLogging && !_444(_1)),
+                        isExcludedBySelector: _347(_1), // Uses _842 / _3._408
+                        isMaskedBySelector: _507(_1),   // Uses _823 / _3._413
+                        _3_keyLogging_Flag: _3.keyLogging,
+                        _444_isWhitelisted_Result: _444(_1) // Uses _780 / _3._412
+                    });
+                }
+                // --- END TEMP DEBUG ---
+                return result;
             }
             function _600(_1) {
+                return false //CHANGE - toto tu nebolo
                 return (_847(_1) || _263(_261(_1)) || _883(_1)) && _811(_1) && !_882.test(_1.type)
             }
             function _889(_1) {
