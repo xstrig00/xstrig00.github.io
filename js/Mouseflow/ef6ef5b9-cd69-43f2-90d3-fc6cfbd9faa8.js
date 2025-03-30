@@ -1966,32 +1966,12 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                                 }
                             }
                             if (record) {
-                                //CHANGE
-                                /*if (attrName.toLowerCase() === 'value' && element.tagName === 'INPUT')
+                                if (attrName.toLowerCase() === 'value' && element.tagName === 'INPUT')
                                     record.attributes.value = _232(element);
                                 else if (attrName === 'mf_adoptedStyleSheets')
                                     _44.serializeAdoptedStyleSheets(element, record);
                                 else
-                                    record.attributes[attrName] = element.getAttribute(attrName)*/
-                                // CHANGE: Explicitly handle 'value' for INPUT/TEXTAREA here
-                                    if (attrName.toLowerCase() === 'value' && (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')) {
-                                        const rawValue = _232(element); // Use your non-masking version
-                                        _7(`Research Debug: serializeAttributeChanges for value. Target: ${_59(element)}, Raw Value: "${rawValue}"`, _14());
-                                        record.attributes.value = rawValue; // Explicitly set raw value
-                                }
-                                // CHANGE: Explicitly handle textContent for mutated text nodes (just in case)
-                                else if (attrName === 'textContent' && element.nodeType === 3) { // Check if it's a text node update
-                                        const rawText = _706(element); // Use your non-masking version
-                                        _7(`Research Debug: serializeAttributeChanges for textContent. Target Node: ${_59(element.parentNode)}, Raw Text: "${rawText}"`, _14());
-                                        record.textContent = rawText; // Use record.textContent for text node changes
-                                }
-                                    // Original logic for other attributes or adoptedStyleSheets
-                                else if (attrName === 'mf_adoptedStyleSheets') {
-                                        _44.serializeAdoptedStyleSheets(element, record);
-                                } else {
-                                        // For all other attributes, use the standard method
-                                        record.attributes[attrName] = element.getAttribute(attrName);
-                                }
+                                    record.attributes[attrName] = element.getAttribute(attrName)
                             }
                         })
                     });
@@ -3576,47 +3556,22 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         }
                     });
                     _103(_12, 'keyup', 'input,textarea,select', function(_6) {
-                        const target = _6.target;
-                        // CHANGE: Add check for text-like inputs/textareas
-                        const isTextLike = (target.tagName === 'INPUT' && /^(text|email|tel|url|search|password|number|date|time|datetime-local|month|week)$/i.test(target.type)) || target.tagName === 'TEXTAREA';
-                    
-                        if (target && target.type !== 'password') { // Original check remains
-                    
-                            // CHANGE: Conditionally call _29
-                            if (!isTextLike) { // If it's NOT a text-like input/textarea (e.g., select dropdown changing)
-                                _29(_8._362, {
-                                    target: _59(target),
-                                    value: _1102(target) // This should be the raw value from your earlier change
-                                });
-                            } else {
-                                // For text-like inputs/textareas, DO NOT send the keyup event
-                                _7(`Research Change: Suppressing keyup event (_8._362) for ${target.tagName}[type=${target.type || 'n/a'}]`, _14());
-                            }
-                    
-                            // Keep payment check separate (it relies on _261, which should be raw)
-                            if (_263(_261(target)) && _3.autoTagPayments)
-                                _94('payment');
+                        if (_6.target && _6.target.type !== 'password') {
+                            _29(_8._362, {
+                                target: _59(_6.target),
+                                value: _1102(_6.target)
+                            });
+                            if (_263(_261(_6.target)) && _3.autoTagPayments)
+                                _94('payment')
                         }
                     });
                     _103(_12, 'change', 'input,textarea,select', function(_6) {
-                        const target = _6.target;
-                        // CHANGE: Add check for text-like inputs/textareas
-                        const isTextLike = (target.tagName === 'INPUT' && /^(text|email|tel|url|search|password|number|date|time|datetime-local|month|week)$/i.test(target.type)) || target.tagName === 'TEXTAREA';
-                    
-                         // CHANGE: Conditionally call _29
-                        if (!isTextLike) { // If it's NOT a text-like input/textarea (e.g., select dropdown)
-                            _29(_8._302, {
-                                target: _59(target),
-                                value: _232(target) // This should be the raw value from your earlier change
-                            });
-                        } else {
-                             // For text-like inputs/textareas, DO NOT send the change event
-                            _7(`Research Change: Suppressing change event (_8._302) for ${target.tagName}[type=${target.type || 'n/a'}]`, _14());
-                        }
-                    
-                        // Keep payment check separate
-                        if (target && ['password', 'file'].indexOf(target.type) === -1 && _263(_261(target)) && _3.autoTagPayments)
-                            _94('payment');
+                        _29(_8._302, {
+                            target: _59(_6.target),
+                            value: _232(_6.target)
+                        });
+                        if (_6.target && ['password', 'file'].indexOf(_6.target.type) === -1 && _263(_261(_6.target)) && _3.autoTagPayments)
+                            _94('payment')
                     });
                     _479(_12);
                     if (_15._764) {
