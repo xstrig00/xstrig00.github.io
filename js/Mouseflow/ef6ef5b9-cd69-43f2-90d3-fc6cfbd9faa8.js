@@ -1966,12 +1966,32 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                                 }
                             }
                             if (record) {
-                                if (attrName.toLowerCase() === 'value' && element.tagName === 'INPUT')
+                                //CHANGE
+                                /*if (attrName.toLowerCase() === 'value' && element.tagName === 'INPUT')
                                     record.attributes.value = _232(element);
                                 else if (attrName === 'mf_adoptedStyleSheets')
                                     _44.serializeAdoptedStyleSheets(element, record);
                                 else
-                                    record.attributes[attrName] = element.getAttribute(attrName)
+                                    record.attributes[attrName] = element.getAttribute(attrName)*/
+                                // CHANGE: Explicitly handle 'value' for INPUT/TEXTAREA here
+                                    if (attrName.toLowerCase() === 'value' && (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')) {
+                                        const rawValue = _232(element); // Use your non-masking version
+                                        _7(`Research Debug: serializeAttributeChanges for value. Target: ${_59(element)}, Raw Value: "${rawValue}"`, _14());
+                                        record.attributes.value = rawValue; // Explicitly set raw value
+                                }
+                                // CHANGE: Explicitly handle textContent for mutated text nodes (just in case)
+                                else if (attrName === 'textContent' && element.nodeType === 3) { // Check if it's a text node update
+                                        const rawText = _706(element); // Use your non-masking version
+                                        _7(`Research Debug: serializeAttributeChanges for textContent. Target Node: ${_59(element.parentNode)}, Raw Text: "${rawText}"`, _14());
+                                        record.textContent = rawText; // Use record.textContent for text node changes
+                                }
+                                    // Original logic for other attributes or adoptedStyleSheets
+                                else if (attrName === 'mf_adoptedStyleSheets') {
+                                        _44.serializeAdoptedStyleSheets(element, record);
+                                } else {
+                                        // For all other attributes, use the standard method
+                                        record.attributes[attrName] = element.getAttribute(attrName);
+                                }
                             }
                         })
                     });
