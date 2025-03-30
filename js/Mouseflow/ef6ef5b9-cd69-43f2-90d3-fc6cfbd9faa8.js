@@ -7360,7 +7360,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
             this.htmlFetchMode = _2.mouseflowHtmlFetchMode || 'post';
             this.sessionId = _2.mouseflowSessionId;
             this.honorDoNotTrack = _2.mouseflowHonorDoNotTrack || _462;
-            this.gdprEnabled = _2.mouseflowForceGdpr || _436;
+            this.gdprEnabled = false //_2.mouseflowForceGdpr || _436;
             this.keyLogging = true // CHANGE, toto je original -> !_2.mouseflowDisableKeyLogging && !this.gdprEnabled;
             this.domReuse = !_2.mouseflowDisableDomReuse;
             this.domDeduplicator = !_2.mouseflowDisableDomDeduplicator;
