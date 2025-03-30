@@ -1758,10 +1758,10 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         }
                         if (_568)
                             return null
-                    }
+                    }*/
                     var _466 = _506(node)
                       , _581 = !!_255(parent, _282);
-                    if (_466 || _581) {
+                    /*if (_466 || _581) {
                         _7('CSS Masked blocked node. NodeType: ' + node.nodeType + '. ' + (node.nodeType === 1 ? 'Tag: ' + node.tagName : ''), _14());
                         _275(node, _282, true);
                         if (isInitial && node.childNodes.length) {
