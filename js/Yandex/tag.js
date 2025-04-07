@@ -8719,7 +8719,7 @@
             k = !l && h ? this.kb(h) : null;
             m = !l && m ? this.kb(m) : null;
             l = this.l;
-            h = this.options;
+            h = this.options; 
             e = this.kb(e || a.parentNode || a.parentElement) || 0;
             var p = f;
             m = void 0 === m ? null : m;
