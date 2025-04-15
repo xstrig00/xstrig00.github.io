@@ -1,4 +1,13 @@
-/*! For license information please see modules.1f3821f9cafd68374ab2.js.LICENSE.txt */
+/*! For license information please see modules.f98993dba31a932bc912.js.LICENSE.txt */
+
+!function() {
+    try {
+        var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {}
+          , n = (new Error).stack;
+        n && (e._sentryDebugIds = e._sentryDebugIds || {},
+        e._sentryDebugIds[n] = "6bdf9726-4cf4-5467-9317-4b99cb9ac3d3")
+    } catch (e) {}
+}();
 !function() {
     var e = {
         4788: function(e, t, n) {
@@ -432,7 +441,7 @@
             }
             ,
             o.matchRules = hj.tryCatch((function(e, t, n) {
-                for (var r, c, u, l, h, d = {
+                for (var r, c, u, l, h, d = e.rules, f = e.userAttributeMatchLogic, g = {
                     device: {
                         rules: [],
                         isMatch: null,
@@ -449,12 +458,15 @@
                     trigger: {
                         rules: []
                     }
-                }, f = 0; f < e.length; f += 1) {
-                    var g;
-                    d[e[f].component] ? null === (g = d[e[f].component]) || void 0 === g || g.rules.push(e[f]) : hj.exceptions.log(new Error("Targeting error - ".concat(d[e[f].component], " targeting component is not supported.")), "hj.targeting.matchRules")
+                }, p = 0; p < d.length; p += 1) {
+                    var v = d[p];
+                    if (void 0 !== v) {
+                        var m = g[v.component];
+                        void 0 !== m ? m.rules.push(v) : hj.exceptions.log(new Error("Targeting error - ".concat(g[v.component], " targeting component is not supported.")), "hj.targeting.matchRules")
+                    }
                 }
                 hj.log.debug("-- Matching rules for new item --");
-                var p = function(e, n) {
+                var y = function(e, n) {
                     var r;
                     "__proto__" !== t && "constructor" !== t && (void 0 === i[t] && (i[t] = []),
                     null === (r = i[t]) || void 0 === r || r.push({
@@ -472,37 +484,43 @@
                     delete i[e])
                 }
                 )),
-                null !== (r = d.device) && void 0 !== r && r.doMatch && (null === (c = d.device) || void 0 === c || !c.doMatch(d.device.rules)))
+                null !== (r = g.device) && void 0 !== r && r.doMatch && (null === (c = g.device) || void 0 === c || !c.doMatch(g.device.rules)))
                     return !1;
-                var v = function() {
+                var j = function() {
                     var e;
-                    return function(e) {
-                        var t, n = null == e ? void 0 : e.every((function(e) {
-                            return a(e, hj.userAttributes.get(e.name))
+                    return function(e, t) {
+                        function n(e) {
+                            hj.log.debug(e, "targeting")
                         }
-                        ));
-                        return t = n ? 0 === (null == e ? void 0 : e.length) ? "No specific user attribute targeting rules set." : "All user attributes matched." : "User attributes set do not match current visitor.",
-                        hj.log.debug(t, "targeting"),
-                        n
-                    }(null === (e = d.attribute) || void 0 === e ? void 0 : e.rules)
+                        if (void 0 === e || 0 === e.length)
+                            return n("No specific user attribute targeting rules set."),
+                            !0;
+                        var r = function(e) {
+                            return a(e, hj.userAttributes.get(e.name))
+                        };
+                        return "and" === t && e.every(r) ? (n("All user attributes matched. (AND logic)"),
+                        !0) : "or" === t && e.some(r) ? (n("A user attribute matched. (OR logic)"),
+                        !0) : (n("User attributes set do not match current visitor."),
+                        !1)
+                    }(null === (e = g.attribute) || void 0 === e ? void 0 : e.rules, null != f ? f : "and")
                 }
-                  , m = null === (u = d.trigger) || void 0 === u ? void 0 : u.rules;
-                if (null != m && m.length) {
+                  , b = null === (u = g.trigger) || void 0 === u ? void 0 : u.rules;
+                if (null != b && b.length) {
                     hj.log.debug("Setting up targeting listeners for trigger rules", "targeting");
-                    var y = function() {
-                        v() && (null == n || n(!0))
+                    var w = function() {
+                        j() && (null == n || n(!0))
                     };
-                    m.forEach((function(e) {
+                    b.forEach((function(e) {
                         var t = "trigger:" + e.pattern;
-                        p(t, y)
+                        y(t, w)
                     }
                     ))
                 }
-                var j = d.url && d.url.doMatch && (null === (l = d.url) || void 0 === l ? void 0 : l.doMatch(d.url.rules, t));
-                return 0 === (null === (h = d.attribute) || void 0 === h ? void 0 : h.rules.length) || v() ? !!j && (null == n || n(),
+                var S = g.url && g.url.doMatch && (null === (l = g.url) || void 0 === l ? void 0 : l.doMatch(g.url.rules, t));
+                return 0 === (null === (h = g.attribute) || void 0 === h ? void 0 : h.rules.length) || j() ? !!S && (null == n || n(),
                 !0) : (hj.log.debug("Setting up targeting listeners for attribute rules", "targeting"),
-                p("user-attributes-set", (function() {
-                    j && v() && (null == n || n(!0))
+                y("user-attributes-set", (function() {
+                    S && j() && (null == n || n(!0))
                 }
                 )),
                 !1)
@@ -676,15 +694,15 @@
                 ), "userAttributes.get")
             }
         },
-        6305: function(e, t, n) {
+        2069: function(e, t, n) {
             "use strict";
             n.r(t),
             n.d(t, {
                 initVoC: function() {
-                    return w
+                    return S
                 },
                 runWidgets: function() {
-                    return S
+                    return _
                 }
             });
             var r = n(9663)
@@ -707,7 +725,8 @@
                 EXTERNAL: "external_link",
                 BUTTON: "button",
                 INLINE_EMBEDDED: "inline",
-                BUBBLE: "bubble"
+                BUBBLE: "bubble",
+                MOBILE_POPOVER: "mobile_popover"
             })
               , u = hj.tryCatch((function() {
                 var e, t, n, r, u, l, h, d;
@@ -826,10 +845,11 @@
                 }
                 ,
                 t.setLanguage = hj.tryCatch((function(t) {
-                    if (!s.includes(t))
+                    var r = (t || "en").replace("-", "_");
+                    if (!s.includes(r))
                         throw new Error('Invalid language "' + t + '"');
-                    e = t,
-                    hj.widget.activeLanguageDirection = n.indexOf(t) > -1 ? "rtl" : "ltr",
+                    e = r,
+                    hj.widget.activeLanguageDirection = n.indexOf(r) > -1 ? "rtl" : "ltr",
                     hj.widget.isActiveLanguageDirectionRtl = "rtl" === hj.widget.activeLanguageDirection
                 }
                 ), "common"),
@@ -856,63 +876,61 @@
             }
             ), "widgets")
               , l = n(6939)
-              , h = n(9982);
-            function d(e, t) {
+              , h = n(9982)
+              , d = function(e, t) {
+                var n, r, o, i, a = null === (n = window.CS_CONF) || void 0 === n || null === (r = n.voc) || void 0 === r ? void 0 : r.enabled;
+                if (hj.isPreview || a && "manual" === hj.settings.state_change_listen_mode)
+                    return !1;
+                var s = (null === (o = e.targeting) || void 0 === o ? void 0 : o.filter((function(e) {
+                    return "url" === e.component
+                }
+                ))) || []
+                  , u = null === (i = e.targeting) || void 0 === i ? void 0 : i.some((function(e) {
+                    return "trigger" === e.component
+                }
+                ))
+                  , l = e.display_type === c.EXTERNAL || "mobile_popover" === e.display_type
+                  , h = a ? location.href : hj.currentUrl
+                  , d = u || l || !0 === hj.targeting.matchUrl(s, h);
+                return hj.tryCatch((function() {
+                    if (!d)
+                        throw new Error("Rendered survey out of URL targeting in ".concat(t, " with ID: ").concat(e.id))
+                }
+                ), "render-out-of-targeting")(),
+                !d
+            };
+            function f(e, t) {
                 for (var n = e.querySelectorAll(t), r = 0; r < n.length; r++) {
                     var o = n[r];
                     o && o.parentElement && o.parentElement.removeChild(o)
                 }
             }
-            var f = n(9163)
-              , g = hj.tryCatch((function() {
+            var g = hj.tryCatch((function() {
+                hj.surveyImpressionsMoved = !0,
                 hj.polls = function() {
                     var e, t = {}, n = window.hjLazyModules, r = hj.tryCatch((function(e, t) {
-                        e.display_type !== c.INLINE_EMBEDDED && function(e) {
-                            if (hj.surveyImpressionsEndpoint && !hj.isPreview) {
-                                var t = "".concat(hj.surveyImpressionsEndpoint, "?id=").concat(e, "&device=").concat((0,
-                                o.vO)());
-                                hj.log.debug("poll id: ".concat(e, " recording impression."), "poll"),
-                                hj.ajax.get(t)
-                            } else
-                                hj.log.debug("poll id: ".concat(e, " skipping recording impression."), "poll")
-                        }(e.id);
-                        var r = {
-                            scriptSrc: "".concat(hj.scriptDomain).concat(n.SURVEY_ISOLATED.js)
-                        };
-                        hj.widget.renderSurvey(e, t, r)
+                        d(e, "doRenderSurvey") || hj.widget.renderSurvey(e, t)
                     }
                     ), "polls");
-                    function i(e) {
-                        return f.R.hasFeature("survey.iframe.".concat(e.display_type)) ? n.SURVEY_BOOTSTRAPPER : n.SURVEY_V2
+                    function i() {
+                        return n.SURVEY_V2
                     }
                     var s = hj.tryCatch((function(t, n) {
-                        if (!hj.isPreview) {
-                            var o, a, s = (null === (o = t.targeting) || void 0 === o ? void 0 : o.filter((function(e) {
-                                return "url" === e.component
+                        if (!d(t, "renderWidget")) {
+                            hj.widget.pollsData = hj.widget.pollsData || {},
+                            hj.widget.pollsData[t.id] = t,
+                            hj.widget.pollsResponsesUUID = hj.widget.pollsResponsesUUID || {},
+                            hj.widget.pollsResponsesUUID[t.id] = hj.uuid(),
+                            hj.widget.setLanguage(t.language),
+                            hj.log.debug("Rendering poll widget.", "poll");
+                            var o = i();
+                            o !== e ? (0,
+                            h.H)(i(), (function() {
+                                e = o,
+                                r(t, n)
                             }
-                            ))) || [], c = (null === (a = t.targeting) || void 0 === a ? void 0 : a.some((function(e) {
-                                return "trigger" === e.component
-                            }
-                            ))) || !0 === hj.targeting.matchUrl(s, location.href);
-                            hj.tryCatch((function() {
-                                if (!c)
-                                    throw new Error("Rendered survey out of URL targeting with ID: ".concat(t.id))
-                            }
-                            ), "render-out-of-targeting")()
+                            )) : r(t, n)
                         }
-                        hj.widget.pollsData = hj.widget.pollsData || {},
-                        hj.widget.pollsData[t.id] = t,
-                        hj.widget.pollsResponsesUUID = hj.widget.pollsResponsesUUID || {},
-                        hj.widget.pollsResponsesUUID[t.id] = hj.uuid(),
-                        hj.widget.setLanguage(t.language),
-                        hj.log.debug("Rendering poll widget.", "poll");
-                        var u = i(t);
-                        u !== e ? (0,
-                        h.H)(i(t), (function() {
-                            e = u,
-                            r(t, n)
-                        }
-                        )) : r(t, n)
                     }
                     ), "polls")
                       , u = hj.tryCatch((function(e) {
@@ -977,8 +995,8 @@
                     }
                     ), "polls"),
                     t.remove = hj.tryCatch((function(e, t) {
-                        hj.widget.pollsData[t] ? (d(document.body, ".".concat("_hj-widget-container")),
-                        d(document.body, ".".concat("_hj-widget-iframe")),
+                        hj.widget.pollsData[t] ? (f(document.body, ".".concat("_hj-widget-container")),
+                        f(document.body, ".".concat("_hj-widget-iframe")),
                         delete hj.widget.pollsData[t],
                         e && setTimeout((function() {
                             e()
@@ -993,11 +1011,14 @@
                         l.W)(e)
                           , i = !1;
                         hj.hq.each(hj.settings.polls || [], (function(a, s) {
-                            var u = s.display_type === c.EXTERNAL
+                            var u = s.display_type === c.EXTERNAL || s.display_type === c.MOBILE_POPOVER
                               , l = s.display_type === c.POPOVER || s.display_type === c.FULL_SCREEN || s.display_type === c.BUTTON || s.display_type === c.INLINE_EMBEDDED || s.display_type === c.BUBBLE;
                             n.length > 0 && u ? s.uuid === r && (hj.log.debug("Offsite poll #" + s.id + " has matched with the embedded UUID " + r, "poll"),
                             i = !0,
-                            t.addEmbedded(s, n)) : !o && l && hj.targeting.matchRules(s.targeting, e, hj.tryCatch((function() {
+                            t.addEmbedded(s, n)) : !o && l && hj.targeting.matchRules({
+                                rules: s.targeting,
+                                userAttributeMatchLogic: s.targeting_user_attribute_match_logic
+                            }, e, hj.tryCatch((function() {
                                 hj.log.debug("Poll #" + s.id + " has matched.", "poll"),
                                 hj.bridge.storage.items.POLL_DONE.exists(s.id) && "always" !== s.persist_condition ? hj.log.debug("Poll was already submitted.", "poll") : hj.widget.addMatchingWidget("poll", s.id, s.created_epoch_time, s.targeting_percentage, (function() {
                                     return t.add(s)
@@ -1062,7 +1083,10 @@
                         ))
                           , i = (hj.settings.surveys || []).concat(o);
                         hj.hq.each(i || [], (function(o, i) {
-                            v.q.matchRules(i.targeting, r, hj.tryCatch((function() {
+                            v.q.matchRules({
+                                rules: i.targeting,
+                                userAttributeMatchLogic: i.targeting_user_attribute_match_logic
+                            }, r, hj.tryCatch((function() {
                                 hj.log.debug("Survey #" + i.id + " has matched.", "survey"),
                                 hj.bridge.storage.items.SURVEY_INVITES_CLOSED.exists(i.id) ? hj.log.debug("Survey was already viewed.", "survey") : hj.widget.addMatchingWidget("survey", i.id, i.created_epoch_time, i.targeting_percentage, (function() {
                                     hj.survey.data = i,
@@ -1113,15 +1137,17 @@
             }
             ), "surveys")
               , b = n(4613)
-              , w = function() {
-                (0,
+              , w = !1
+              , S = function() {
+                w || ((0,
                 r.E)(),
                 u(),
                 g(),
-                j()
+                j(),
+                w = !0)
             }
-              , S = function(e) {
-                (0,
+              , _ = function(e) {
+                hj.widget && ((0,
                 b.isUserTest)() ? (0,
                 h.H)(window.hjLazyModules.USER_TEST, (function() {
                     var e, t;
@@ -1134,7 +1160,7 @@
                 hj.polls.run(e),
                 hj.survey.invites.run(e),
                 hj.widget.runLatestMatchingWidget(),
-                hj.widget.runInlineEmbeddedWidgets())
+                hj.widget.runInlineEmbeddedWidgets()))
             }
         },
         9663: function(e, t, n) {
@@ -1351,59 +1377,73 @@
             n.r(t),
             n.d(t, {
                 isUserTest: function() {
-                    return c
+                    return u
                 },
                 userTestStore: function() {
-                    return a
+                    return s
                 }
             });
             var o = "https://voc.hotjar.com"
-              , i = "hj-uut"
-              , a = {
+              , i = [o, "https://voc.ew1-integration-1.hotjarians.net", "https://hj-engage-unmoderated-review.s3.eu-west-1.amazonaws.com"]
+              , a = "hj-uut"
+              , s = {
                 get: function() {
-                    var e = window.sessionStorage.getItem(i);
+                    var e = window.sessionStorage.getItem(a);
                     return e ? JSON.parse(e) : null
+                },
+                getValue: function(e) {
+                    var t = s.get();
+                    return null == t ? void 0 : t[e]
                 },
                 set: function(e) {
                     if (e) {
-                        var t, n = null !== (t = a.get()) && void 0 !== t ? t : {};
-                        window.sessionStorage.setItem(i, JSON.stringify(r(r({}, n), e)))
+                        var t, n = null !== (t = s.get()) && void 0 !== t ? t : {};
+                        window.sessionStorage.setItem(a, JSON.stringify(r(r({}, n), e)))
                     }
                 },
                 clear: function() {
-                    window.sessionStorage.removeItem(i)
-                }
+                    window.sessionStorage.removeItem(a)
+                },
+                validDomains: i
             }
-              , s = function(e) {
+              , c = function(e) {
                 var t = new URLSearchParams(e);
-                return "1" === t.get("is_preview") ? t.has("task_uuid") : t.has("response_uuid") && t.has("task_uuid") && t.has("participation_uuid")
+                return !!t.has("project_uuid") || ("1" === t.get("is_preview") ? t.has("task_uuid") : t.has("response_uuid") && t.has("task_uuid") && t.has("participation_uuid"))
             }
-              , c = function() {
+              , u = function() {
                 var e, t = null !== (e = function() {
                     var e = document.referrer;
                     if ("string" == typeof e && function(e) {
                         if ("string" != typeof e)
                             return !1;
                         try {
-                            var t = new URL(e);
-                            return "1" === t.searchParams.get("is_preview") ? !!t.hostname.endsWith(".hotjar.com") && !!t.pathname.includes("research/projects/tests") : null == e ? void 0 : e.includes(o)
+                            var t = new URL(e)
+                              , n = "1" === t.searchParams.get("is_preview");
+                            return !!i.some((function(t) {
+                                return null == e ? void 0 : e.includes(t)
+                            }
+                            )) || !!n && t.hostname.endsWith(".hotjar.com") && t.pathname.includes("research/projects/tests")
                         } catch (e) {
                             return !1
                         }
-                    }(e) && s(new URL(e).search))
+                    }(e) && c(new URL(e).search))
                         return e
                 }()) && void 0 !== e ? e : function() {
-                    var e, t = new URLSearchParams(window.location.search).get("hj_uut");
-                    if (null !== (e = document.referrer) && void 0 !== e && e.includes("hotjar.com") && t) {
-                        var n = window.atob(t);
-                        if (s(n)) {
-                            var r = new URL(o);
-                            return r.search = n,
-                            r.toString()
+                    var e = new URLSearchParams(window.location.search).get("hj_uut");
+                    if (i.some((function(e) {
+                        var t;
+                        return null === (t = document.referrer) || void 0 === t ? void 0 : t.includes(e)
+                    }
+                    )) && e) {
+                        var t = window.atob(e);
+                        if (c(t)) {
+                            var n = new URL(o);
+                            return n.search = t,
+                            n.toString()
                         }
                     }
-                }(), n = void 0 !== t, r = null !== a.get();
-                return n && a.set({
+                }(), n = void 0 !== t, r = null !== s.get();
+                return n && s.set({
                     referrer: t
                 }),
                 r || n
@@ -2441,7 +2481,10 @@
                             h.IU)({
                                 recordingEnabled: !0
                             }),
-                            s.N.start()) : hj.targeting.matchRules(hj.settings.record_targeting_rules, e, hj.tryCatch((function() {
+                            s.N.start()) : hj.targeting.matchRules({
+                                rules: hj.settings.record_targeting_rules,
+                                userAttributeMatchLogic: void 0
+                            }, e, hj.tryCatch((function() {
                                 (0,
                                 h.IU)({
                                     recordingEnabled: !0
@@ -2591,7 +2634,9 @@
                         selector: hj.selector().get(t),
                         text: n,
                         type: e.target.type,
-                        suppression: "none" //CHANGE
+                        //CHANGE
+                        //suppression: p ? "full" : "none"
+                        suppression: "none" //TOTO TU NEBOLO
                     }),
                     g = !0
                 }
@@ -2611,7 +2656,9 @@
                                     selector: e.selector,
                                     text: n.substring(0, o + 1),
                                     type: e.type,
-                                    suppression: "none" //CHANGE
+                                    //CHANGE
+                                    //suppression: "full"
+                                    suppression: "none" //TOTO TU NEBOLO
                                 });
                             t.text = n,
                             v.push(t)
@@ -7542,7 +7589,7 @@
               , o = n(9982)
               , i = n(512)
               , a = n(8422)
-              , s = n(6305)
+              , s = n(2069)
               , c = n(8417)
               , u = n(9780)
               , l = n(9163);
@@ -9350,9 +9397,10 @@
             }
               , D = {
                 getSuppressedText: function(e, t) {
+                    //CHANGE
                     //var n = P[e];
                     //return n ? n(t) : R(t)
-                    return t //CHANGE
+                    return t //TOTO TU NEBOLO
                 },
                 getSuppressedImageNode: function(e) {
                     var t = {
@@ -10854,7 +10902,7 @@
             isNotSampled: !0 === (0,
             n(4613).isUserTest)()
         });
-        var t = n(6305).initVoC;
+        var t = n(2069).initVoC;
         n(4931),
         n(6682),
         n(1214),
