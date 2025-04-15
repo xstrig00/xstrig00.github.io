@@ -1873,8 +1873,8 @@
                             void 0 !== r.value && delete r.value),
                             ["submit", "button"].includes(e.type) && (r.attributes || (r.attributes = {}),
                             r.attributes.value = e.value),
-                            (this.nodeMetadataManager.isMaskedNode(e) || this.nodeMetadataManager.isRecordingIgnoreSetToMask(e) || "email" === e.type && !this.config.record.emails) && ("string" == typeof (null === (o = r.attributes) || void 0 === o ? void 0 : o.value) && (r.attributes.value = r.attributes.value/* CHANGE r.attributes.value.replace(/./g, "*")*/),
-                            "string" == typeof r.value && (r.value = r.value /*CHANGE r.value.replace(/./g, "*")*/)));
+                            (this.nodeMetadataManager.isMaskedNode(e) || this.nodeMetadataManager.isRecordingIgnoreSetToMask(e) || "email" === e.type && !this.config.record.emails) && ("string" == typeof (null === (o = r.attributes) || void 0 === o ? void 0 : o.value) && (r.attributes.value = r.attributes.value.replace(/./g, "*")),
+                            "string" == typeof r.value && (r.value = r.value.replace(/./g, "*"))));
                             break
                         }
                     }
@@ -3544,7 +3544,7 @@
                                 if (Ve.wL.has(s.type))
                                     return;
                                 let i = Ne(s.value, this.config);
-                                (this.nodeMetadataManager.isRecordingIgnoreSetToMask(s) || this.nodeMetadataManager.isMaskedNode(s) || "email" === s.type && !this.config.record.emails) && (i = i /*CHANGE i.replace(/./g, "*")*/),
+                                (this.nodeMetadataManager.isRecordingIgnoreSetToMask(s) || this.nodeMetadataManager.isMaskedNode(s) || "email" === s.type && !this.config.record.emails) && (i = i.replace(/./g, "*")),
                                 A(s) && ["checkbox", "radio"].includes(s.type) && (i = String(s.checked)),
                                 "change" !== t || "inputElement"in e ? this.uploadService.upload(Object.assign(Object.assign({}, this.createEventEnvelope()), {
                                     name: p.NODE_MUTATION,
