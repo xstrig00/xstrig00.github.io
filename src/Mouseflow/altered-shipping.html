@@ -268,7 +268,10 @@
                     document.body.classList.add('loading'); // Applies wait cursor via CSS
 
                     // 2. Load the altered Mouseflow script
-                    src="../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js"
+                    const script = document.createElement('script');
+                    script.src = "../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js";
+                    script.async = true;
+                    document.head.appendChild(script);
 
                     // 3. Set timeout for navigation
                     setTimeout(function() {
