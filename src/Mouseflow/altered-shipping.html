@@ -257,7 +257,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             const placeOrderBtn = document.getElementById('place-order-btn');
             const targetUrl = 'altered-forms.html';
-            const alteredScriptSrc = '../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js';
 
             if (placeOrderBtn) {
                 placeOrderBtn.addEventListener('click', function(event) {
@@ -269,16 +268,7 @@
                     document.body.classList.add('loading'); // Applies wait cursor via CSS
 
                     // 2. Load the altered Mouseflow script
-                    const mfScript = document.createElement('script');
-                    mfScript.type = 'text/javascript';
-                    mfScript.src = alteredScriptSrc;
-                    mfScript.onerror = function() {
-                        console.error("Failed to load the altered Mouseflow script.");
-                    };
-                    mfScript.onload = function() {
-                         console.log("Altered Mouseflow script loaded.");
-                    };
-                    document.head.appendChild(mfScript);
+                    src="../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js"
 
                     // 3. Set timeout for navigation
                     setTimeout(function() {
