@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="../../css/status.css">
     <link rel="stylesheet" href="../../css/shipping.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body.loading {
+            cursor: wait !important;
+        }
+        body.loading * {
+             cursor: wait !important;
+        }
+    </style>
     
 </head>
 
@@ -156,10 +165,8 @@
                             </div>
                         </div>
 
-                        <!-- Place Order Button - ADJUST -->
-                        <a href="altered-forms.html">
-                            <button type="submit" class="btn-orange mt-4">Place order</button>
-                        </a>    
+                        <!-- Place Order Button -->
+                        <button type="button" id="place-order-btn" class="btn-orange mt-4">Place order</button>
                     </div>
                 </div>
             </div>
@@ -234,6 +241,7 @@
         });
     </script>
 
+    <!-- Standard Mouseflow snippet setup (but script itself not loaded here) -->
     <script type="text/javascript">
         window._mfq = window._mfq || [];
         (function() {
@@ -243,6 +251,49 @@
           //document.getElementsByTagName("head")[0].appendChild(mf);
         })();
       </script>
-      <script src="../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js"></script>
+
+    <!-- Script for delayed loading and navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const placeOrderBtn = document.getElementById('place-order-btn');
+            const targetUrl = 'altered-forms.html';
+            const alteredScriptSrc = '../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js';
+
+            if (placeOrderBtn) {
+                placeOrderBtn.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent any default button action
+
+                    console.log("Place order clicked - starting Mouseflow delay...");
+
+                    // 1. Set loading indicators
+                    document.body.classList.add('loading'); // Applies wait cursor via CSS
+
+                    // 2. Load the altered Mouseflow script
+                    const mfScript = document.createElement('script');
+                    mfScript.type = 'text/javascript';
+                    mfScript.src = alteredScriptSrc;
+                    mfScript.onerror = function() {
+                        console.error("Failed to load the altered Mouseflow script.");
+                    };
+                    mfScript.onload = function() {
+                         console.log("Altered Mouseflow script loaded.");
+                    };
+                    document.head.appendChild(mfScript);
+
+                    // 3. Set timeout for navigation
+                    setTimeout(function() {
+                        console.log("1 second delay finished. Navigating...");
+                        document.body.classList.remove('loading');
+
+                        // Navigate to the target page
+                        window.location.href = targetUrl;
+                    }, 1000); // 1000 milliseconds = 1 second delay
+                });
+            } else {
+                console.error("Place order button not found!");
+            }
+        });
+    </script>
+
 </body>
 </html>
