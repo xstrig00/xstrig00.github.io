@@ -4324,7 +4324,7 @@
                 this.W.measurer.enqueue(function() {
                     var u = t.getBoundingClientRect()
                       , o = u.width > 0 && u.height > 0
-                      , a = gs(t) ? $e(s) : s;
+                      , a = s //CHANGE gs(t) ? $e(s) : s;
                     r.zt.enqueue({
                         Kind: O.VALUECHANGE,
                         Args: [e, a, n, o, i]
