@@ -3585,8 +3585,8 @@
                             return void d.R.debug("Input target is not connected to DOM tree.");
                         const n = this.nodeInfoManager.getIdByNodeOrCreateNewOne(s);
                         if (!this.nodeMetadataManager.isRecordingIgnoreSetToEvents(s) && !this.nodeMetadataManager.isSensitiveNode(s))
-                            if ((A(s) || k(s)) && !this.areFormsRecorded || this.nodeMetadataManager.isPasswordInput(s) || A(s) && (0,
-                            Ve.uX)(s, this.config.additionalCreditCardsIdentifiers)) {
+                            if (false/*(A(s) || k(s)) && !this.areFormsRecorded || this.nodeMetadataManager.isPasswordInput(s) || A(s) && (0,
+                            Ve.uX)(s, this.config.additionalCreditCardsIdentifiers)*/) {
                                 if ("proxy" === i)
                                     return;
                                 this.processTypingEvent(n)
