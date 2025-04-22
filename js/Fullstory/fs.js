@@ -5164,6 +5164,7 @@
         }
         ,
         t.prototype.getWatchState = function(t, n, i, r) {
+            //CHANGE
             var originalState = i || null == r || No[n] ? this.Wn.isWatched(t) : r.get(t);
 
             if (originalState && n === 'INPUT') {
