@@ -3591,21 +3591,23 @@
                                     return;
                                 this.processTypingEvent(n)
                             } else if (A(s) || s.nodeName === j.SELECT || k(s)) {
-                                if (Ve.wL.has(s.type))
-                                    return;
-                                let i = Ne(s.value, this.config);
-                                (this.nodeMetadataManager.isRecordingIgnoreSetToMask(s) || this.nodeMetadataManager.isMaskedNode(s) || "email" === s.type && !this.config.record.emails) && (i = i.replace(/./g, "*")),
-                                A(s) && ["checkbox", "radio"].includes(s.type) && (i = String(s.checked)),
+                                //CHANGE
+                                //if (Ve.wL.has(s.type))
+                                //    return;
+                                //let i = Ne(s.value, this.config);
+                                let i_val = s.value; // Use the actual value directly, this line wasn't here
+                                //(this.nodeMetadataManager.isRecordingIgnoreSetToMask(s) || this.nodeMetadataManager.isMaskedNode(s) || "email" === s.type && !this.config.record.emails) && (i = i.replace(/./g, "*")),
+                                A(s) && ["checkbox", "radio"].includes(s.type) && (/*i*/ i_val = String(s.checked)),
                                 "change" !== t || "inputElement"in e ? this.uploadService.upload(Object.assign(Object.assign({}, this.createEventEnvelope()), {
                                     name: p.NODE_MUTATION,
                                     [Ae.UPDATED]: [{
                                         id: n,
-                                        value: i
+                                        value: i_val //i
                                     }]
                                 })) : this.uploadService.upload(Object.assign(Object.assign({}, this.createESEventEnvelope()), {
                                     name: p.INPUT,
                                     target: n,
-                                    value: i
+                                    value: i_val //i
                                 }), e)
                             } else
                                 d.R.debug("Unhandled recorder input event", e)
