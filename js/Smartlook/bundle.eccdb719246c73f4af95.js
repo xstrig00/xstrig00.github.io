@@ -919,14 +919,18 @@
         }
           , Ie = (e, t, i, s) => {
             let n = e.nodeValue;
-            return null === n ? "" : (n = s.isMaskedNode(e) ? n.replace(/\S/gi, "*") : Ne(n, t),
-            n)
+            //CHANGE
+            return null === n ? "" : n; // Always return the original node value, remove if needed, this wasn't here
+            //return null === n ? "" : (n = s.isMaskedNode(e) ? n.replace(/\S/gi, "*") : Ne(n, t),
+            //n)
         }
           , Ne = (e, t) => {
-            let i = e;
-            return t.record.emails || (i = Te(i)),
-            t.record.numbers || (i = (e => e.replace(we, "*"))(i)),
-            i
+            //CHANGE
+            return e // this wasn't here
+            //let i = e;
+            //return t.record.emails || (i = Te(i)),
+            //t.record.numbers || (i = (e => e.replace(we, "*"))(i)),
+            //i
         }
           , Oe = (e, t) => {
             if (t.isCrossOriginIframeMode)
@@ -1866,16 +1870,62 @@
                                     this.processAsset(t)
                                 }
                             }
-                            (A(e) || k(e)) && (r.value = A(e) && ["checkbox", "radio"].includes(e.type) ? String(e.checked) : Ne(e.value, this.config),
-                            "string" == typeof (null === (s = r.attributes) || void 0 === s ? void 0 : s.value) && (r.attributes.value = Ne(r.attributes.value, this.config)),
-                            (this.nodeMetadataManager.isPasswordInput(e) || this.nodeMetadataManager.isSensitiveNode(e) || A(e) && (0,
-                            Ve.uX)(e, this.config.additionalCreditCardsIdentifiers) || !this.areFormsRecorded || Ve.wL.has(e.type)) && ((null === (n = r.attributes) || void 0 === n ? void 0 : n.value) && delete r.attributes.value,
-                            void 0 !== r.value && delete r.value),
-                            ["submit", "button"].includes(e.type) && (r.attributes || (r.attributes = {}),
-                            r.attributes.value = e.value),
-                            (this.nodeMetadataManager.isMaskedNode(e) || this.nodeMetadataManager.isRecordingIgnoreSetToMask(e) || "email" === e.type && !this.config.record.emails) && ("string" == typeof (null === (o = r.attributes) || void 0 === o ? void 0 : o.value) && (r.attributes.value = r.attributes.value.replace(/./g, "*")),
-                            "string" == typeof r.value && (r.value = r.value.replace(/./g, "*"))));
-                            break
+                            (A(e) || k(e)) && (
+
+                                // CHANGE: Commented out the original line that used Ne() (potential masking).
+                                // r.value = A(e) && ["checkbox", "radio"].includes(e.type)
+                                //     ? String(e.checked)
+                                //     : Ne(e.value, this.config),
+                            
+                                // CHANGE: Added line to directly use the element's current value property, bypassing masking.
+                                r.value = A(e) && ["checkbox", "radio"].includes(e.type)
+                                    ? String(e.checked) // Still use 'checked' for checkbox/radio
+                                    : e.value, // Use the actual value directly
+                            
+                                // Set the recorded 'value' attribute
+                                "string" == typeof (null === (s = r.attributes) || void 0 === s ? void 0 : s.value) && ( // Did the original element have a 'value' attribute?
+                            
+                                    // CHANGE: Commented out the original line that used Ne() (potential masking) for the attribute.
+                                    // r.attributes.value = Ne(r.attributes.value, this.config)
+                            
+                                    // CHANGE: Added line to directly use the element's current value attribute (or property as fallback), bypassing masking.
+                                    r.attributes.value = e.getAttribute('value') || e.value // Use the actual attribute or property value
+                                ),
+                            
+                                // CHANGE: Commented out the entire deletion logic block below.
+                                // This prevents the recorded 'value' property and attribute from being deleted based on sensitivity, type, or config.
+                                /*
+                                (this.nodeMetadataManager.isPasswordInput(e) ||
+                                 this.nodeMetadataManager.isSensitiveNode(e) ||
+                                 (A(e) && (0, Ve.uX)(e, this.config.additionalCreditCardsIdentifiers)) ||
+                                 !this.areFormsRecorded ||
+                                 Ve.wL.has(e.type)
+                                ) && (
+                                    (null === (n = r.attributes) || void 0 === n ? void 0 : n.value) && delete r.attributes.value,
+                                    void 0 !== r.value && delete r.value
+                                ),
+                                */
+                            
+                                // Keep this block: Special handling for submit/button values (they represent labels)
+                                ["submit", "button"].includes(e.type) && (
+                                    r.attributes || (r.attributes = {}),
+                                    r.attributes.value = e.value
+                                )
+                            
+                                // CHANGE: Commented out the entire EXPLICIT MASKING logic block below.
+                                // This prevents the recorded 'value' property and attribute from being replaced with '*' based on metadata or email config.
+                                /*
+                                (this.nodeMetadataManager.isMaskedNode(e) ||
+                                 this.nodeMetadataManager.isRecordingIgnoreSetToMask(e) ||
+                                 ("email" === e.type && !this.config.record.emails)
+                                ) && (
+                                    "string" == typeof (null === (o = r.attributes) || void 0 === o ? void 0 : o.value) && (r.attributes.value = r.attributes.value.replace(/./g, "*")),
+                                    "string" == typeof r.value && (r.value = r.value.replace(/./g, "*"))
+                                )
+                                */
+                            
+                            );
+                            break;
                         }
                     }
                     return r
