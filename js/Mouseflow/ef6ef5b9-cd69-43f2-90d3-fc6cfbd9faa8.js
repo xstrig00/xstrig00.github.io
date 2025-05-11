@@ -22,10 +22,10 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
         var _410 = new _1024(window);
         var _3 = new _1063(window,_55,_436,_462);
         _3._260();
-        _3._408 = [];
-        _3._412 = [];
+        _3._408 = [];       //EXCLUDE
+        _3._412 = [];       //WHITELIST
         _3._278 = [];
-        _3._413 = [];
+        _3._413 = [];       //MASK
         _3._686 = [];
         _3._673 = [];
         _3._49 = 'ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8';
@@ -1828,7 +1828,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                         }
                         data.attributes = {};
                         var _874 = _468 || _466;
-                        //CHANGE - bol tu ten if-else
+                        //CHANGE - if-else was here
                         /*if (_874) {
                             _875(node, data)
                         } else {*/
@@ -3124,22 +3124,10 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
             function _847(_1) {
                 let result = _11._171(_1, 'no-mouseflow') || _347(_1) || _507(_1);
                 //let result =  _11._171(_1, 'no-mouseflow') || (!_3.keyLogging && !_444(_1)) || _347(_1) || _507(_1)
-                //CHANGE --- TEMP DEBUG ---
-                if (_1 && (_1.tagName === 'INPUT' || _1.tagName === 'TEXTAREA' || _1.tagName === 'SELECT') && result) {
-                    console.log('%cMF Debug: _847 is TRUE for:', 'color: orange; font-weight: bold;', _1, 'Reason flags:', {
-                        noMouseflowClass: _11._171(_1, 'no-mouseflow'),
-                        keyLoggingFallback: (!_3.keyLogging && !_444(_1)),
-                        isExcludedBySelector: _347(_1), // Uses _842 / _3._408
-                        isMaskedBySelector: _507(_1),   // Uses _823 / _3._413
-                        _3_keyLogging_Flag: _3.keyLogging,
-                        _444_isWhitelisted_Result: _444(_1) // Uses _780 / _3._412
-                    });
-                }
-                // --- END TEMP DEBUG ---
                 return result;
             }
             function _600(_1) {
-                return false //CHANGE - toto tu nebolo
+                return false //CHANGE - my addition, remove if needed
                 return (_847(_1) || _263(_261(_1)) || _883(_1)) && _811(_1) && !_882.test(_1.type)
             }
             function _889(_1) {
@@ -3187,7 +3175,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                     _32 = '+||' + _344.substring(_363.length);
                 _0._569[_357] = _344;
                 return _32*/
-                return _232(_1); //this wasn't here
+                return _232(_1); //my addition, this wasn't here
             }
             function _928(_62, _503, _502) {
                 try {
@@ -6212,7 +6200,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 /*CHANGE _13._63 = 'exclude';
                 _87(_13);
                 _339()*/
-                return // this wasn't here
+                return // my addition, this wasn't here
             }
             function _1000() {
                 _13._63 = 'whitelist';
@@ -6228,7 +6216,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
                 /*CHANGE _13._63 = 'masked';
                 _87(_13);
                 _339()*/
-                return //this wasn't here
+                return // my addition, this wasn't here
             }
             function _339() {
                 _11._61(_27.getElementsByClassName('mf-tool-exclude')[0], 'active');
@@ -7361,7 +7349,7 @@ if (typeof mouseflow === 'undefined' && typeof mouseflowPlayback === 'undefined'
             this.sessionId = _2.mouseflowSessionId;
             this.honorDoNotTrack = _2.mouseflowHonorDoNotTrack || _462;
             this.gdprEnabled = false //_2.mouseflowForceGdpr || _436;
-            this.keyLogging = true // CHANGE, toto je original -> !_2.mouseflowDisableKeyLogging && !this.gdprEnabled;
+            this.keyLogging = true // CHANGE, this is the original -> !_2.mouseflowDisableKeyLogging && !this.gdprEnabled;
             this.domReuse = !_2.mouseflowDisableDomReuse;
             this.domDeduplicator = !_2.mouseflowDisableDomDeduplicator;
             this.includeSubDomains = !_2.mouseflowExcludeSubDomains;

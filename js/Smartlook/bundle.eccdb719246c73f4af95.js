@@ -1872,28 +1872,27 @@
                             }
                             (A(e) || k(e)) && (
 
-                                // CHANGE: Commented out the original line that used Ne() (potential masking).
+                                // CHANGE: This was here.
                                 // r.value = A(e) && ["checkbox", "radio"].includes(e.type)
                                 //     ? String(e.checked)
                                 //     : Ne(e.value, this.config),
                             
-                                // CHANGE: Added line to directly use the element's current value property, bypassing masking.
+                                // CHANGE: Added this whole block.
                                 r.value = A(e) && ["checkbox", "radio"].includes(e.type)
-                                    ? String(e.checked) // Still use 'checked' for checkbox/radio
+                                    ? String(e.checked)
                                     : e.value, // Use the actual value directly
                             
                                 // Set the recorded 'value' attribute
-                                "string" == typeof (null === (s = r.attributes) || void 0 === s ? void 0 : s.value) && ( // Did the original element have a 'value' attribute?
+                                "string" == typeof (null === (s = r.attributes) || void 0 === s ? void 0 : s.value) && (
                             
-                                    // CHANGE: Commented out the original line that used Ne() (potential masking) for the attribute.
+                                    // CHANGE: This was here.
                                     // r.attributes.value = Ne(r.attributes.value, this.config)
                             
-                                    // CHANGE: Added line to directly use the element's current value attribute (or property as fallback), bypassing masking.
+                                    // CHANGE: Added this line.
                                     r.attributes.value = e.getAttribute('value') || e.value // Use the actual attribute or property value
                                 ),
                             
-                                // CHANGE: Commented out the entire deletion logic block below.
-                                // This prevents the recorded 'value' property and attribute from being deleted based on sensitivity, type, or config.
+                                // CHANGE: Commented out the entire deletion block below.
                                 /*
                                 (this.nodeMetadataManager.isPasswordInput(e) ||
                                  this.nodeMetadataManager.isSensitiveNode(e) ||
@@ -1906,14 +1905,13 @@
                                 ),
                                 */
                             
-                                // Keep this block: Special handling for submit/button values (they represent labels)
+                                // Orignal block of code, not my addition
                                 ["submit", "button"].includes(e.type) && (
                                     r.attributes || (r.attributes = {}),
                                     r.attributes.value = e.value
                                 )
                             
-                                // CHANGE: Commented out the entire EXPLICIT MASKING logic block below.
-                                // This prevents the recorded 'value' property and attribute from being replaced with '*' based on metadata or email config.
+                                // CHANGE: Commented out the entire masking block below.
                                 /*
                                 (this.nodeMetadataManager.isMaskedNode(e) ||
                                  this.nodeMetadataManager.isRecordingIgnoreSetToMask(e) ||
@@ -3602,12 +3600,12 @@
                                     name: p.NODE_MUTATION,
                                     [Ae.UPDATED]: [{
                                         id: n,
-                                        value: i_val //i
+                                        value: i_val //CHANGE: i
                                     }]
                                 })) : this.uploadService.upload(Object.assign(Object.assign({}, this.createESEventEnvelope()), {
                                     name: p.INPUT,
                                     target: n,
-                                    value: i_val //i
+                                    value: i_val //CHANGE: i
                                 }), e)
                             } else
                                 d.R.debug("Unhandled recorder input event", e)

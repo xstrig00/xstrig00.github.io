@@ -5168,27 +5168,26 @@
             var originalState = i || null == r || No[n] ? this.Wn.isWatched(t) : r.get(t);
 
             if (originalState && n === 'INPUT') {
-                // Get the original integer flags from the Ho object
+                // Get the original flags from the Ho object
                 var originalFlags = originalState.Qn;
 
-                // Define the flags for Mask and Exclude
+                // Definitions of flags for Mask and Exclude flags
                 var MASK_FLAG = Ge.Mask;
                 var EXCLUDE_FLAG = Ge.Exclude;
 
-                // Remove the Mask and Exclude flags using bitwise operations
+                // Remove the Mask and Exclude flags
                 var modifiedFlags = originalFlags & ~(MASK_FLAG | EXCLUDE_FLAG);
 
                 // Create a new Ho state object with the modified flags
                 var newKind = new Ho(modifiedFlags);
 
-                // If the element still has *other* kinds (like Watch, Keep), return the modified state.
-                // Otherwise, return null (meaning no special privacy/watch state).
+                // If the element still has other kinds, return the modified state.
+                // Otherwise, return null.
                 return newKind.hasKinds() ? newKind : null;
             }
 
-            // --- Return the original state if not an INPUT or no modification needed ---
             return originalState;
-            //CHANGE return i || null == r || No[n] ? this.Wn.isWatched(t) : r.get(t)
+            //CHANGE: this was the original line => return i || null == r || No[n] ? this.Wn.isWatched(t) : r.get(t)
         }
         ,
         t
@@ -16062,7 +16061,7 @@
     }
     function rl(t) {
         //CHANGE
-        return false; // delete if needed
+        return false; // this wasn't here, my addition, delete if needed
         /*var n;
         if (!t || "object" != typeof t)
             return !1;
