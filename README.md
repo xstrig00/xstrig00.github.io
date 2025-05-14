@@ -14,6 +14,8 @@ This document describes the folder structure.
 ├── package.json
 └── README.md
 
+```text
+
 ## Folder Descriptions
 
 ### `css/`
