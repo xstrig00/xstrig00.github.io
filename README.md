@@ -1,6 +1,9 @@
 This document describes the folder structure.
 
 ## Folder Structure
+
+```text
+
 .
 ├── css/
 ├── images/
@@ -31,3 +34,7 @@ This document describes the folder structure.
 *   **`LICENSE`**
 *   **`package.json`**
 *   **`README.md`**
+
+## How to Run / View the Website
+
+This website is primarily composed of static HTML, CSS, and JavaScript files
