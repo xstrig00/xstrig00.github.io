@@ -2,8 +2,7 @@ This document describes the folder structure.
 
 ## Folder Structure
 
-```text
-
+```
 .
 ├── css/
 ├── images/
@@ -13,8 +12,7 @@ This document describes the folder structure.
 ├── LICENSE
 ├── package.json
 └── README.md
-
-```text
+```
 
 ## Folder Descriptions
 
