@@ -1,4 +1,4 @@
-This document outlines the folder structure of this project and describes the contents of each main directory and file.
+This document describes the folder structure.
 
 ## Folder Structure
 .
