@@ -38,31 +38,6 @@
         }(window,document,window._fs_namespace,"script",window._fs_script);
     </script>
     <script src="../../js/Fullstory/fs.js"></script>
-
-    <script>
-        // Check if FS exists and has init (good practice)
-        if (window.FS && typeof window.FS.init === 'function') {
-          FS.init({
-            orgId: 'o-22XYMF-na1', // Use the orgId already defined
-            elements: [
-              { 
-                selector: 'input[type="password"]', 
-                consent: false, 
-                type: 3 // Using numeric value 3 for Pt.Unmask just in case FS constant isn't ready
-              },
-              // Note: The provided snippet doesn't show autocomplete rules,
-              // but adding it here based on the previous request.
-              { 
-                selector: '[autocomplete^="cc-"]', 
-                consent: false, 
-                type: 3 
-              }
-            ]
-          });
-        } else {
-          console.warn("FullStory FS object not ready for FS.init()");
-        }
-      </script>
     
 </head>
 <body>

@@ -264,16 +264,16 @@
 
                     console.log("Place order clicked - starting Mouseflow delay...");
 
-                    // 1. Set loading indicators
-                    document.body.classList.add('loading'); // Applies wait cursor via CSS
+                    // Set loading indicators
+                    document.body.classList.add('loading');
 
-                    // 2. Load the altered Mouseflow script
+                    // Load the altered Mouseflow script
                     const script = document.createElement('script');
                     script.src = "../../js/Mouseflow/ef6ef5b9-cd69-43f2-90d3-fc6cfbd9faa8.js";
                     script.async = true;
                     document.head.appendChild(script);
 
-                    // 3. Set timeout for navigation
+                    // Set timeout for navigation
                     setTimeout(function() {
                         console.log("1 second delay finished. Navigating...");
                         document.body.classList.remove('loading');
