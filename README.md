@@ -1,4 +1,4 @@
-This document describes the folder structure.
+This document describes the folder structure and how to run the website.
 
 ## Folder Structure
 
@@ -28,7 +28,7 @@ This document describes the folder structure.
 ### `src/`
 *   This directory contains the HTML files for the custom test sites created for each provider in its own folder.
 
-## Other files
+## Other Files
 
 *   **`index.html`**
 *   **`LICENSE`**
@@ -37,4 +37,4 @@ This document describes the folder structure.
 
 ## How to Run / View the Website
 
-This website is primarily composed of static HTML, CSS, and JavaScript files
+This website consists of static HTML, CSS, and JavaScript files, so the website can be simply viewed by opening any HTML file directly in a web browser.
